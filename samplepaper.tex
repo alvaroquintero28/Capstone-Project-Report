@@ -4,19 +4,20 @@
 %
 \documentclass[runningheads]{llncs}
 %
+\usepackage{caption}  % For custom captions\usepackage{cite}     % For handling citations
+\usepackage{amsmath}  % For mathematical features
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=black]{hyperref}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
 % If you use the hyperref package, please uncomment the following line
 % to display URLs in blue roman font according to Springer's eBook style:
 % \renewcommand\UrlFont{\color{blue}\rmfamily}
-\usepackage{float}
-\usepackage{array}
-\usepackage{ragged2e}
-\raggedbottom
+
+
 
 \begin{document}
 %
@@ -62,12 +63,13 @@ Key resources for this project provided below:
     {Capstone Project Report Overleaf}
 \end{itemize}
 
-\subsection{The following are the phases of project implementation.}
-    \begin{enumerate}
-\item Define the Problem and Objectives
+\subsection{The following are the phases of project implementation}
+
 \begin{enumerate}
-    \item Clearly articulate the specific questions and objectives of the analysis, focusing on how heart disease predictions can improve preventive measures for stroke patients.
-    \item Identify key performance indicators (KPIs) to measure the success of the project. 
+    \item Define the Problem and Objectives
+    \begin{enumerate}
+        \item Clearly articulate the specific questions and objectives of the analysis, focusing on how heart disease predictions can improve preventive measures for stroke patients.
+         \item Identify key performance indicators (KPIs) to measure the success of the project. 
 \end{enumerate}
 \item  Literature Review and Background Research
 \begin{enumerate}
@@ -138,45 +140,36 @@ Key resources for this project provided below:
 \section{Literature Review and Background Research}
 Numerous studies have identified effective preventive measures for reducing the risk of stroke, emphasizing both management of hypertension and lifestyle interventions. Hypertension is the most significant modifiable risk factor for stroke, and studies have shown that controlling blood pressure through lifestyle changes, such as a healthy diet, regular physical activity, reducing sodium intake, smoking cessation, and adhering to prescribed antihypertensive medications can significantly lower the likelihood of experiencing a stroke. Maintaining blood pressure within a normal range (typically less than 120/80 mmHg) is crucial in preventing both ischemic and hemorrhagic strokes, making it the most critical focus in stroke prevention efforts. Combined, these research findings underscore the importance of a multifaceted approach to stroke prevention that integrates medical treatment with proactive lifestyle changes.
 
+\subsection{Limitations}
+The healthcare stroke prevention dataset and the well-being and lifestyle dataset each have inherent limitations that may affect the comprehensiveness and applicability of their findings. Firstly, the stroke prevention dataset may suffer from issues related to sample size and demographic representation, potentially limiting the generalizability of the results across diverse populations. Additionally, the accuracy of self-reported data regarding lifestyle factors in the well-being and lifestyle dataset may be compromised by social desirability bias, where participants might underreport unhealthy behaviors or exaggerate healthy ones. Furthermore, the transient nature of lifestyle habits makes it challenging to capture accurate and stable data over time, potentially leading to discrepancies in understanding long-term behavior trends.
+
 \section{Data}
 Data collection for this analysis involved two comprehensive datasets sourced from Kaggle: the Wellbeing and Lifestyle Data and the Healthcare Dataset on Stroke Data. The Wellbeing and Lifestyle Data dataset encompasses a variety of factors influencing individual health and well-being, such as lifestyle choices. It features demographic information, including age, gender, and socioeconomic status, facilitating an understanding of how these variables correlate with reported well-being outcomes. The Healthcare Dataset on Stroke Data, on the other hand, presents critical health metrics and conditions related to stroke incidents among patients. By merging insights from these two datasets, a more comprehensive picture of lifestyle influences on health outcomes can be constructed, enabling a deeper exploration of the relationships between well-being, lifestyle choices, and stroke risk.
 
 
 \subsection{Dataset Variable Attributes}
 
-The following table summarizes the variables in the dataset, including their descriptions, data types, and possible values:
+The following tables summarize the variables in the datasets, including their descriptions, data types, and possible values. These attributes are essential for understanding the data collected and for any subsequent analysis.
 
-\begin{table}[ht]
-    \centering
-    \caption{Selected Variable Descriptions}
-    \begin{tabular}{|l|l|l|} % Defines three columns with vertical lines
-        \hline
-        \textbf{Variable Name} & \textbf{Description} & \textbf{Possible Values} \\ 
-        \hline
-        age & Age of the patient in years & Whole numbers (e.g., 0, 1, 25, 60) \\ 
-        \hline
-        gender & Gender of the patient & "Male", "Female", "Other" \\ 
-        \hline
-        hypertension & Indicates if the patient has hypertension & 0 (No), 1 (Yes) \\ 
-        \hline
-        heart\_disease & Indicates if the patient has heart disease & 0 (No), 1 (Yes) \\ 
-        \hline
-        ever\_married & Indicates if the patient has ever been married & "No", "Yes" \\ 
-        \hline
-        work\_type & Type of employment of the patient & "children", "Govt job", "Never worked", "Private", "Self-employed" \\ 
-        \hline
-        bmi & Body Mass Index of the patient & Positive floats (e.g., 18.5, 30.0) \\ 
-        \hline
-        smoking\_status & Indicates the smoking status of the patient & "formerly smoked", "never smoked", "smokes", "Unknown" \\ 
-        \hline
-    \end{tabular}
-    \label{tab:selected_variable_descriptions}
+\subsection{Data Cleaning}
+Data cleaning is a crucial step in preparing data for analysis, ensuring that the datasets are accurate, consistent, and complete such as in Table 1, which summarizes the descriptions and possible values for key attributes. Inconsistencies were identified and rectified in the data, particularly for categorical variables like gender and the presence of health conditions such as hypertension and heart disease, which are coded as binary values (0 for "No" and 1 for "Yes"). Additionally, the numerical data, including the Body Mass Index (BMI) and income sufficiency scores, were examined to ensure they fell within realistic ranges. For continuous variables like daily stress levels and sleep hours, frequency distributions were tabulated, as demonstrated in subsequent tables, to check for anomalies or outliers. This included examining stress levels, which were recorded in intervals, revealing patterns in the counts associated with each level (Table 2). Demographic distributions were focused on, such as age and gender breakdowns (Tables 4 and 5), confirming their representation matched expectations based on the source population. By employing these data cleaning techniques, it improved the reliability of analysis and enhanced the validity of the findings regarding daily stress influences. For instance, the graphical summary shown in Figure \ref{fig:Healthy Mind What Drives Our Daily Stress} visually represents the analyzed data, indicating significant relationships that deserve further exploration.
+
+\begin{table}  
+\centering    
+\caption{Selected Variable Descriptions}\label{tab1} 
+\begin{tabular}{|l|l|l|} 
+\hline     
+
+\textbf{Variable Name} & \textbf{Description} & \textbf{Possible Values} \\        \hline        age & Age of the patient in years & Whole numbers (e.g., 0, 1, 25, 60) \\        \hline        gender & Gender of the patient & "Male", "Female", "Other" \\        \hline        hypertension & Indicates if the patient has hypertension & 0 (No), 1 (Yes) \\        \hline        heart\_disease & Indicates if the patient has heart disease & 0 (No), 1 (Yes) \\        \hline        ever\_married & Indicates if the patient has ever been married & "No", "Yes" \\        \hline        work\_type & Type of employment of the patient & "children", "Govt job", "Never worked", 
+"Private", "Self-employed" \\        \hline        bmi & Body Mass Index of the patient & Positive floats (e.g., 18.5, 30.0) \\        \hline        smoking\_status & Indicates the smoking status of the patient & "formerly smoked", "smokes"\\        
+\hline    
+\end{tabular}    
 \end{table}
 
 \begin{table}[ht]
     \centering
-    \caption{Daily Stress Levels}
-    \begin{tabular}{|l|c|}
+    \caption{Daily Stress Levels}\label{tab1}
+    \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Stress Level (0-10)} & \textbf{Count} \\ 
         \hline
@@ -188,13 +181,12 @@ The following table summarizes the variables in the dataset, including their des
         4.75 - 5.00 & 2,052 \\ 
         \hline
     \end{tabular}
-    \label{tab:stress_levels}
 \end{table}
 
 \begin{table}[ht]
     \centering
-    \caption{Typical Sleep Hours}
-    \begin{tabular}{|l|c|}
+    \caption{Typical Sleep Hours}\label{tab1}
+    \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Sleep Hours (0-10)} & \textbf{Count} \\ 
         \hline
@@ -210,13 +202,12 @@ The following table summarizes the variables in the dataset, including their des
         9.55 - 10.00 & 333 \\ 
         \hline
     \end{tabular}
-    \label{tab:sleep_hours}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}
     \centering
-    \caption{Income Sufficiency}
-    \begin{tabular}{|l|c|}
+    \caption{Income Sufficiency}\label{tab1}
+    \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Income Sufficiency} & \textbf{Count} \\ 
         \hline
@@ -224,13 +215,14 @@ The following table summarizes the variables in the dataset, including their des
         1.95 - 2.00 & 11,643 \\ 
         \hline
     \end{tabular}
-    \label{tab:income_sufficiency}
+
 \end{table}
+
 
 \begin{table}[ht]
     \centering
-    \caption{Demographic Breakdown by Age}
-    \begin{tabular}{|l|c|}
+    \caption{Demographic Breakdown by Age}\label{tab1}
+    \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Age Group} & \textbf{Percentage} \\ 
         \hline
@@ -239,13 +231,13 @@ The following table summarizes the variables in the dataset, including their des
         Other & 33\% \\ 
         \hline
     \end{tabular}
-    \label{tab:age_group}
 \end{table}
+\clearpage
 
-\begin{table}[ht]
+\begin{table}[h]
     \centering
-    \caption{Gender Breakdown}
-    \begin{tabular}{|l|c|}
+    \caption{Gender Breakdown}\label{tab1}
+    \begin{tabular}{|l|l|l|}
         \hline
         \textbf{Gender} & \textbf{Percentage} \\ 
         \hline
@@ -253,78 +245,24 @@ The following table summarizes the variables in the dataset, including their des
         Male & 38\% \\ 
         \hline
     \end{tabular}
-    \label{tab:gender_breakdown}
 \end{table}
 
-
-
-
-
-
-
-
-
-
-
-
 \begin{figure}
-\includegraphics[width=\textwidth]{fig1.eps}
-\caption{A figure caption is always placed below the illustration.
-Please note that short captions are centered, while long ones are
-justified by the macro package automatically.} 
-\label{fig1}
+    \centering
+    \includegraphics[width=1.2\linewidth]{__results___16_0.png}
+    \caption{Summary of Daily Stress}\cite{Work-Life}
+    \label{fig:enter-label}
 \end{figure}
 
-The detailed steps of the MEC is shown in Figure \ref{mecFig}.
-
-\begin{figure}
-\includegraphics[width=\textwidth]{mecomputing.png}
-\caption{This is the MEC} 
-\label{mecFig}
-\end{figure}
-
-%\begin{theorem}
-%This is a sample theorem. The run-in heading is set in bold, while
-%the following text appears in italics. Definitions, lemmas,
-%propositions, and corollaries are styled the same way.
-%\end{theorem}
-%
-% the environments 'definition', 'lemma', 'proposition', 'corollary',
-% 'remark', and 'example' are defined in the LLNCS documentclass as well.
-%
-\begin{proof}
-Proofs, examples, and remarks have the initial word in italics,
-while the following text appears in normal font.
-\end{proof}
-
-
-The following are the items in my lunch menu.
-\begin{itemize}
-    \item Fish
-    \begin{itemize}
-        \item sauce
-        \item fires
-    \end{itemize}
-    \item Chicken
-    \item Yogurt
-    \item ice cream
-\end{itemize}
 
 
 
 
-For citations of references, we prefer the use of square brackets
-and consecutive numbers. \cite{bariah2020prospective}, \cite{kato2020ten}.
 
-Now I am citing this article. \cite{hoehle2015mobile}
 
-citing now \cite{8766917}, \cite{10.5555/2667432.2667458}
 
-Now, I am using my sixth \cite{mao2017survey} citation.
 
-\cite{910896}
-
-\cite{*}
+\clearpage
 
 %
 % ---- Bibliography ----
@@ -332,11 +270,12 @@ Now, I am using my sixth \cite{mao2017survey} citation.
 % BibTeX users should specify bibliography style 'splncs04'.
 % References will then be sorted and formatted in the correct style.
 %
+\nocite{*}
 \bibliographystyle{splncs04}
 \bibliography{mybibliography}
 
 
 %
 
-\end{document}
 
+\end{document}
