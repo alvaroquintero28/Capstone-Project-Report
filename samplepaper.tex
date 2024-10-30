@@ -5,12 +5,18 @@
 \documentclass[runningheads]{llncs}
 %
 \usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
 %
 % If you use the hyperref package, please uncomment the following line
 % to display URLs in blue roman font according to Springer's eBook style:
 % \renewcommand\UrlFont{\color{blue}\rmfamily}
+\usepackage{float}
+\usepackage{array}
+\usepackage{ragged2e}
+\raggedbottom
 
 \begin{document}
 %
@@ -28,8 +34,7 @@
 %
 \institute{Northwest Missouri State University, Maryville MO 64468, USA \\
 \email{S573928@nwmissouri.edu and alvaroquintero28@yahoo.com}\\
-{https://github.com/alvaroquintero28/Capstone-Project-Report}
-{https://es.overleaf.com/read/zqgzcfntnwbz#9bc8ce}}
+}
 %
 \maketitle              % typeset the header of the contribution
 %
@@ -48,112 +53,17 @@ Strokes are a major health concern globally, recognized as one of the leading ca
 \subsection{Define the Problem and Goals of This Capstone Project} 
 This section discusses the goals of the proposed project. The primary focus of this capstone project is to develop a comprehensive understanding of stroke prediction and prevention strategies using data-driven approaches. Main goal consist of identifying key risk factors. By applying statistical analysis and machine learning techniques, it will determine which variables are most predictive of stroke occurrence. Further focus will evaluate performance of developed models in predicting stroke events, thereby providing valuable insights for early intervention. The project will propose targeted preventive strategies that can be implemented in community health programs therefore enhancing greater public awareness.
 
-\subsection{This is another subsection}
-Write something related to your paper.
+\subsubsection*{Project Links}
+Key resources for this project provided below:
 
-\section{Literature Review and Background Research}
-Numerous studies have identified effective preventive measures for reducing the risk of stroke, emphasizing both management of hypertension and lifestyle interventions. Hypertension is the most significant modifiable risk factor for stroke, and studies have shown that controlling blood pressure through lifestyle changes, such as a healthy diet, regular physical activity, reducing sodium intake, smoking cessation, and adhering to prescribed antihypertensive medications can significantly lower the likelihood of experiencing a stroke. Maintaining blood pressure within a normal range (typically less than 120/80 mmHg) is crucial in preventing both ischemic and hemorrhagic strokes, making it the most critical focus in stroke prevention efforts. Combined, these research findings underscore the importance of a multifaceted approach to stroke prevention that integrates medical treatment with proactive lifestyle changes.
-
-\section{Data}
-
-
-\begin{table}
-\caption{Gas Prices}\label{gasprice}
-\begin{tabular}{|l|r|}
-\hline
-Month &  Price \\
-\hline
-Jan &  \$2.12 \\
-Feb &  0.12 \% \\
-\hline
-Mar &  1.12 \\
-\hline
-Apr &  2.12 \\
-May &  3.12 \\
-Jun &  1.12 \\
-
-\hline
-\end{tabular}
-\end{table}
-
-
-
-\begin{table}
-\caption{Table captions should be placed above the
-tables.}\label{tab1}
-\begin{tabular}{|l|l|l|}
-\hline
-Heading level &  Example & Font size and style\\
-\hline
-Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
-1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
-2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
-3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
-4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
-\hline
-\end{tabular}
-\end{table}
-
-
-The gasoline prices are summarized in Table \ref{gasprice}
-
-
-
-\noindent Displayed equations are centered and set on a separate
-line.
-\begin{equation}
-x + y = z
-\end{equation}
-Please try to avoid rasterized images for line-art diagrams and
-schemas. Whenever possible, use vector graphics instead (see
-Fig.~\ref{fig1}).
-
-\begin{figure}
-\includegraphics[width=\textwidth]{fig1.eps}
-\caption{A figure caption is always placed below the illustration.
-Please note that short captions are centered, while long ones are
-justified by the macro package automatically.} 
-\label{fig1}
-\end{figure}
-
-The detailed steps of the MEC is shown in Figure \ref{mecFig}.
-
-\begin{figure}
-\includegraphics[width=\textwidth]{mecomputing.png}
-\caption{This is the MEC} 
-\label{mecFig}
-\end{figure}
-
-%\begin{theorem}
-%This is a sample theorem. The run-in heading is set in bold, while
-%the following text appears in italics. Definitions, lemmas,
-%propositions, and corollaries are styled the same way.
-%\end{theorem}
-%
-% the environments 'definition', 'lemma', 'proposition', 'corollary',
-% 'remark', and 'example' are defined in the LLNCS documentclass as well.
-%
-\begin{proof}
-Proofs, examples, and remarks have the initial word in italics,
-while the following text appears in normal font.
-\end{proof}
-
-
-The following are the items in my lunch menu.
 \begin{itemize}
-    \item Fish
-    \begin{itemize}
-        \item sauce
-        \item fires
-    \end{itemize}
-    \item Chicken
-    \item Yogurt
-    \item ice cream
+    \item \href{https://github.com/alvaroquintero28/Capstone-Project-Report}{Capstone-Project-Report GitHub}
+    \item \href{https://es.overleaf.com/read/zqgzcfntnwbz#9bc8ce}
+    {Capstone Project Report Overleaf}
 \end{itemize}
 
-
-The following are the phases of project implementation. 
-\begin{enumerate}
+\subsection{The following are the phases of project implementation.}
+    \begin{enumerate}
 \item Define the Problem and Objectives
 \begin{enumerate}
     \item Clearly articulate the specific questions and objectives of the analysis, focusing on how heart disease predictions can improve preventive measures for stroke patients.
@@ -222,16 +132,246 @@ The following are the phases of project implementation.
             \item Provide actionable insights and recommendations for preventing heart disease in stroke patients based on the findings. 
         \end{enumerate}
 \item Discussion of the limitations
-    \begin{enumerate}
-        \item ?
-        \item ?
-    \end{enumerate}
 \item Ideas for future work.
-    \begin{enumerate}
-        \item ?
-        \item ?
-    \end{enumerate}
 \end{enumerate}
+
+\section{Literature Review and Background Research}
+Numerous studies have identified effective preventive measures for reducing the risk of stroke, emphasizing both management of hypertension and lifestyle interventions. Hypertension is the most significant modifiable risk factor for stroke, and studies have shown that controlling blood pressure through lifestyle changes, such as a healthy diet, regular physical activity, reducing sodium intake, smoking cessation, and adhering to prescribed antihypertensive medications can significantly lower the likelihood of experiencing a stroke. Maintaining blood pressure within a normal range (typically less than 120/80 mmHg) is crucial in preventing both ischemic and hemorrhagic strokes, making it the most critical focus in stroke prevention efforts. Combined, these research findings underscore the importance of a multifaceted approach to stroke prevention that integrates medical treatment with proactive lifestyle changes.
+
+\section{Data}
+Data collection for this analysis involved two comprehensive datasets sourced from Kaggle: the Wellbeing and Lifestyle Data and the Healthcare Dataset on Stroke Data. The Wellbeing and Lifestyle Data dataset encompasses a variety of factors influencing individual health and well-being, such as lifestyle choices. It features demographic information, including age, gender, and socioeconomic status, facilitating an understanding of how these variables correlate with reported well-being outcomes. The Healthcare Dataset on Stroke Data, on the other hand, presents critical health metrics and conditions related to stroke incidents among patients. By merging insights from these two datasets, a more comprehensive picture of lifestyle influences on health outcomes can be constructed, enabling a deeper exploration of the relationships between well-being, lifestyle choices, and stroke risk.
+
+\begin{document}
+
+\subsection{Dataset Variable Attributes}
+
+The following table summarizes the variables in the dataset, including their descriptions, data types, and possible values:
+
+\begin{table}[ht]
+    \centering
+    \caption{Selected Variable Descriptions}
+    \begin{tabular}{|l|l|l|} % Defines three columns with vertical lines
+        \hline
+        \textbf{Variable Name} & \textbf{Description} & \textbf{Possible Values} \\ 
+        \hline
+        age & Age of the patient in years & Whole numbers (e.g., 0, 1, 25, 60) \\ 
+        \hline
+        gender & Gender of the patient & "Male", "Female", "Other" \\ 
+        \hline
+        hypertension & Indicates if the patient has hypertension & 0 (No), 1 (Yes) \\ 
+        \hline
+        heart\_disease & Indicates if the patient has heart disease & 0 (No), 1 (Yes) \\ 
+        \hline
+        ever\_married & Indicates if the patient has ever been married & "No", "Yes" \\ 
+        \hline
+        work\_type & Type of employment of the patient & "children", "Govt job", "Never worked", "Private", "Self-employed" \\ 
+        \hline
+        bmi & Body Mass Index of the patient & Positive floats (e.g., 18.5, 30.0) \\ 
+        \hline
+        smoking\_status & Indicates the smoking status of the patient & "formerly smoked", "never smoked", "smokes", "Unknown" \\ 
+        \hline
+    \end{tabular}
+    \label{tab:selected_variable_descriptions}
+\end{table}
+
+
+\section*{Survey Data Overview}
+
+The following tables summarize survey data on stress levels, sleep hours, income sufficiency, and demographic breakdown by age and gender.
+
+\subsection*{1. Stress Levels}
+
+\begin{table}[ht]
+    \centering
+    \caption{Daily Stress Levels}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Stress Level (0-10)} & \textbf{Count} \\ 
+        \hline
+        0.00 - 0.25 & 676 \\ 
+        1.00 - 1.25 & 2,478 \\ 
+        2.00 - 2.25 & 3,407 \\ 
+        3.00 - 3.25 & 4,398 \\ 
+        4.00 - 4.25 & 2,960 \\ 
+        4.75 - 5.00 & 2,052 \\ 
+        \hline
+    \end{tabular}
+    \label{tab:stress_levels}
+\end{table}
+
+\subsection*{2. Sleep Hours}
+
+\begin{table}[ht]
+    \centering
+    \caption{Typical Sleep Hours}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Sleep Hours (0-10)} & \textbf{Count} \\ 
+        \hline
+        1.00 - 1.45 & 18 \\ 
+        1.90 - 2.35 & 21 \\ 
+        2.80 - 3.25 & 49 \\ 
+        3.70 - 4.15 & 252 \\ 
+        4.60 - 5.05 & 1,025 \\ 
+        5.95 - 6.40 & 3,397 \\ 
+        6.85 - 7.30 & 5,566 \\ 
+        7.75 - 8.20 & 4,324 \\ 
+        8.65 - 9.10 & 987 \\ 
+        9.55 - 10.00 & 333 \\ 
+        \hline
+    \end{tabular}
+    \label{tab:sleep_hours}
+\end{table}
+
+\subsection*{3. Income Sufficiency}
+
+\begin{table}[ht]
+    \centering
+    \caption{Income Sufficiency}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Income Sufficiency} & \textbf{Count} \\ 
+        \hline
+        1.00 - 1.05 & 4,329 \\ 
+        1.95 - 2.00 & 11,643 \\ 
+        \hline
+    \end{tabular}
+    \label{tab:income_sufficiency}
+\end{table}
+
+\subsection*{4. Demographics}
+
+\begin{table}[ht]
+    \centering
+    \caption{Demographic Breakdown}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Age Group} & \textbf{Percentage} \\ 
+        \hline
+        21 to 35 & 38\% \\ 
+        36 to 50 & 29\% \\ 
+        Other & 33\% \\ 
+        \hline
+    \end{tabular}
+    \label{tab:age_group}
+\end{table}
+
+\begin{table}[ht]
+    \centering
+    \caption{Gender Breakdown}
+    \begin{tabular}{|l|c|}
+        \hline
+        \textbf{Gender} & \textbf{Percentage} \\ 
+        \hline
+        Female & 62\% \\ 
+        Male & 38\% \\ 
+        \hline
+    \end{tabular}
+    \label{tab:gender_breakdown}
+\end{table}
+
+
+
+
+
+
+
+
+
+\begin{table}
+\caption{Gas Prices}\label{gasprice}
+\begin{tabular}{|l|r|}
+\hline
+Month &  Price \\
+\hline
+Jan &  \$2.12 \\
+Feb &  0.12 \% \\
+\hline
+Mar &  1.12 \\
+\hline
+Apr &  2.12 \\
+May &  3.12 \\
+Jun &  1.12 \\
+
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}
+\caption{Table captions should be placed above the
+tables.}\label{tab1}
+\begin{tabular}{|l|l|l|}
+\hline
+Heading level &  Example & Font size and style\\
+\hline
+Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
+1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
+2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
+3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
+4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+
+\noindent Displayed equations are centered and set on a separate
+line.
+\begin{equation}
+x + y = z
+\end{equation}
+Please try to avoid rasterized images for line-art diagrams and
+schemas. Whenever possible, use vector graphics instead (see
+Fig.~\ref{fig1}).
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig1.eps}
+\caption{A figure caption is always placed below the illustration.
+Please note that short captions are centered, while long ones are
+justified by the macro package automatically.} 
+\label{fig1}
+\end{figure}
+
+The detailed steps of the MEC is shown in Figure \ref{mecFig}.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{mecomputing.png}
+\caption{This is the MEC} 
+\label{mecFig}
+\end{figure}
+
+%\begin{theorem}
+%This is a sample theorem. The run-in heading is set in bold, while
+%the following text appears in italics. Definitions, lemmas,
+%propositions, and corollaries are styled the same way.
+%\end{theorem}
+%
+% the environments 'definition', 'lemma', 'proposition', 'corollary',
+% 'remark', and 'example' are defined in the LLNCS documentclass as well.
+%
+\begin{proof}
+Proofs, examples, and remarks have the initial word in italics,
+while the following text appears in normal font.
+\end{proof}
+
+
+The following are the items in my lunch menu.
+\begin{itemize}
+    \item Fish
+    \begin{itemize}
+        \item sauce
+        \item fires
+    \end{itemize}
+    \item Chicken
+    \item Yogurt
+    \item ice cream
+\end{itemize}
+
 
 
 
