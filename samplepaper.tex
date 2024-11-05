@@ -149,17 +149,144 @@ Data collection for this analysis involved two comprehensive datasets sourced fr
 
 \subsection{Dataset Variable Attributes}
 
-The following tables summarize the variables in the datasets, including their descriptions, data types, and possible values. These attributes are essential for understanding the data collected and for any subsequent analysis.
+The following tables summarize the original data attributes, including their descriptions, data types, and possible values prior to any data cleaning. These attributes are essential for understanding the collected data and are crucial for any subsequent analysis.
 
-\begin{table}  
+\clearpage
+\begin{table}[ht]
+\centering
+\caption{Attributes, Descriptions, and Possible Values from Healthcare Dataset}
+\label{tab:healthcare_data_attributes}
+\begin{tabular}{|l|p{5cm}|p{4cm}|}
+\hline
+\textbf{Attribute} & \textbf{Description} & \textbf{Possible Values} \\ 
+\hline
+\textbf{id} & Unique identifier for each patient & Whole numbers \\ 
+\hline
+\textbf{gender} & Gender of the patient & "Male", "Female", "Other" \\ 
+\hline
+\textbf{age} & Age of the patient in years & Whole numbers (e.g., 0, 1, 25, 60) \\ 
+\hline
+\textbf{hypertension} & Indicates if the patient has hypertension & 0 (No), 1 (Yes) \\ 
+\hline
+\textbf{heart\_disease} & Indicates if the patient has heart disease & 0 (No), 1 (Yes) \\ 
+\hline
+\textbf{ever\_married} & Indicates if the patient has ever been married & "Yes", "No" \\ 
+\hline
+\textbf{work\_type} & Type of employment of the patient & "Children", "Govt job", "Self-employed", "Private", "Never worked" \\ 
+\hline
+\textbf{Residence\_type} & Type of residence of the patient & "Urban", "Rural" \\ 
+\hline
+\textbf{avg\_glucose\_level} & Average glucose level of the patient & Positive floats (e.g., 70.0, 220.0) \\ 
+\hline
+\textbf{bmi} & Body Mass Index of the patient & Positive floats (e.g., 18.5, 30.0) or "N/A" \\ 
+\hline
+\textbf{smoking\_status} & Indicates the smoking status of the patient & "formerly smoked", "smokes", "never smoked", "Unknown" \\ 
+\hline
+\textbf{stroke} & Indicates if the patient has had a stroke & 0 (No), 1 (Yes) \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}[ht]
+\centering
+\caption{Attributes, Descriptions, and Possible Values from Work-Life Balance Dataset}
+\label{tab:work_life_balance_attributes}
+\begin{tabular}{|l|p{5cm}|p{4cm}|}
+\hline
+\textbf{Attribute} & \textbf{Description} & \textbf{Possible Values} \\ 
+\hline
+\textbf{Timestamp} & Date of the record entry & Date format (e.g., "7/7/15") \\ 
+\hline
+\textbf{FRUITS\_VEGGIES} & Number of servings of fruits and vegetables consumed daily & Whole numbers (e.g., 0, 1, 2, 10) \\ 
+\hline
+\textbf{DAILY\_STRESS} & Daily stress level rating & Whole numbers (e.g., 1 to 10) \\ 
+\hline
+\textbf{PLACES\_VISITED} & Number of places visited daily & Whole numbers (e.g., 0, 1, 2, 10) \\ 
+\hline
+\textbf{CORE\_CIRCLE} & Number of close relationships or friends & Whole numbers (e.g., 0, 1, 8) \\ 
+\hline
+\textbf{SUPPORTING\_OTHERS} & Amount of time spent supporting others & Whole numbers (e.g., 0, 1, 10) \\ 
+\hline
+\textbf{SOCIAL\_NETWORK} & Size of social network measured as a rating & Whole numbers (e.g., 0 to 10) \\ 
+\hline
+\textbf{ACHIEVEMENT} & Personal achievements reported & Whole numbers (e.g., 0 to 10) \\ 
+\hline
+\textbf{DONATION} & Amount donated in a monitored period & Whole numbers (e.g., 0, 1, 100) \\ 
+\hline
+\textbf{BMI\_RANGE} & Body Mass Index range category & "Less than 20", "21 to 35", "36 to 50", "51 or more" \\ 
+\hline
+\textbf{TODO\_COMPLETED} & Number of to-do tasks completed & Whole numbers (e.g., 0, 1, 5) \\ 
+\hline
+\textbf{FLOW} & Flow state engagement score & Whole numbers (e.g., 0 to 10) \\ 
+\hline
+\textbf{DAILY\_STEPS} & Number of steps taken daily & Whole numbers (e.g., 0, 1000, 10000) \\ 
+\hline
+\textbf{LIVE\_VISION} & Level of clarity regarding personal goals & Whole numbers (e.g., 0 to 10) \\ 
+\hline
+\textbf{SLEEP\_HOURS} & Average hours of sleep per night & Whole numbers (e.g., 0, 5, 8) \\ 
+\hline
+\textbf{LOST\_VACATION} & Indicates if vacation days were unused & 0 (No), 1 (Yes) \\ 
+\hline
+\textbf{DAILY\_SHOUTING} & Number of times shouted in a day & Whole numbers (e.g., 0, 1, 5) \\ 
+\hline
+\textbf{SUFFICIENT\_INCOME} & Indicates if income is sufficient & 0 (No), 1 (Yes) \\ 
+\hline
+\textbf{PERSONAL\_AWARDS} & Number of personal awards received & Whole numbers (e.g., 0, 2, 10) \\ 
+\hline
+\textbf{TIME\_FOR\_PASSION} & Amount of time available for personal passions & Whole numbers (e.g., 0, 1, 10) \\ 
+\hline
+\textbf{WEEKLY\_MEDITATION} & Hours spent meditating each week & Whole numbers (e.g., 0, 1, 5) \\ 
+\hline
+\textbf{AGE} & Age category of the individual & "Less than 20", "21 to 35", "36 to 50", "51 or more" \\ 
+\hline
+\textbf{GENDER} & Gender of the individual & "Male", "Female" \\ 
+\hline
+\textbf{WORK\_LIFE\_BALANCE\_SCORE} & Score representing work-life balance & Float numbers \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\section{Cleaning}
+Data cleaning is a crucial step in preparing data for analysis, ensuring that the datasets are accurate, consistent, and complete such as in Table 1, which summarizes the descriptions and possible values for key attributes. Inconsistencies were identified and rectified in the data, particularly for categorical variables like gender and the presence of health conditions such as hypertension and heart disease, which are coded as binary values (0 for "No" and 1 for "Yes"). Additionally, the numerical data, including the Body Mass Index (BMI) and income sufficiency scores, were examined to ensure they fell within realistic ranges. For continuous variables like daily stress levels and sleep hours, frequency distributions were tabulated, as demonstrated in subsequent tables, to check for outliers. This included examining stress levels, which were recorded in intervals, revealing patterns in the counts associated with each level (Table 2). Demographic distributions were focused on, such as age and gender breakdowns (Tables 4 and 5), confirming their representation matched expectations based on the source population. By employing these data cleaning techniques, it improved the reliability of analysis and enhanced the validity of the findings regarding daily stress influences. For instance, the graphical summary shown in Figure \ref{fig:Healthy Mind What Drives Our Daily Stress} visually represents the analyzed data, indicating significant relationships that deserve further exploration.
+
+\subsection{Work-Life Balance Survey}
+
+The data cleaning process for the Work-Life Balance Survey dataset begins with an assessment of its initial structure, where the dataset's information and the first few rows are inspected to understand its layout and the types of data contained within. This foundational step allows for the identification of any discrepancies in column names, which are then standardized by stripping any leading or trailing whitespace. To focus the analysis, only relevant columns—specifically 'DAILY STRESS', 'AGE', 'GENDER', 'INCOME', and 'SLEEP HOURS'—are selected, ensuring that they exist within the DataFrame. Particular attention is given to categorical values; for instance, the age category "Less than 20" is revised to "20 or less" for consistency. Critical numeric conversions are performed on the 'DAILY STRESS' and 'SLEEP HOURS' columns, with errors handled through coercion to address any non-numeric values. Duplicate entries are eliminated to maintain data integrity, followed by a thorough check for missing values across the dataset. Rows with missing data in essential variables are dropped to ensure the robustness of the analysis. Finally, descriptive statistics are generated to provide insights into the data distribution, and the cleaned dataset is saved as a CSV file, ensuring it is ready for future exploratory analysis. This meticulous cleaning procedure lays the groundwork for a comprehensive understanding of the factors influencing work-life balance and contributes to enhanced decision-making regarding employee well-being.
+
+\subsection{Healthcare Dataset Stroke Data}
+
+The data preprocessing workflow for the healthcare stroke dataset employs several key techniques to ensure the dataset is ready for analysis. Initially, the dataset is loaded using Pandas, and the first step involves examining its structure and identifying any missing values, which informs subsequent cleaning procedures. A selection of relevant features, including age, gender, hypertension status, heart disease, and more, is made to focus the analysis. To address missing values, categorical variables such as gender and marital status are encoded using LabelEncoder, converting them into a numerical format suitable for machine learning models. The K-nearest neighbors (KNN) imputation method is applied specifically to the body mass index (BMI) column, filling in gaps based on similar observations. The target variable, stroke status, is then transformed into a binary format for easier classification. After addressing missing values, a correlation analysis is conducted to explore relationships between variables, and the data is split into training and testing sets to enable robust model evaluation. To enhance model performance, feature scaling is performed using Min-Max scaling, ensuring all features are on a similar scale. Additionally, class imbalance in the target variable is addressed using the Synthetic Minority Over-sampling Technique (SMOTE), which balances the number of instances of each class in the training set. Finally, the cleaned and processed dataset is saved for future modeling efforts, completing a comprehensive cleaning and preprocessing pipeline that prepares the data for effective exploratory analysis and predictive modeling.
+
+
+
+\begin{table}[ht]
 \centering    
-\caption{Attributes, Descriptions, and Possible Values from healthcare-dataset-stroke-data}\label{tab1} 
+\caption{Attributes, Descriptions, and Possible Values from Healthcare Dataset - Stroke Data} 
+\label{tab1} 
 
-\begin{tabular}{|l|l|l|} 
+\begin{tabular}{|l|p{5cm}|p{4cm}|} 
 \hline     
-
-\textbf{Attribute} & \textbf{Description} & \textbf{Possible Values} \\        \hline        age & Age of the patient in years & Whole numbers (e.g., 0, 1, 25, 60) \\        \hline        gender & Gender of the patient & "Male", "Female", "Other" \\        \hline        hypertension & Indicates if the patient has hypertension & 0 (No), 1 (Yes) \\        \hline        heart\_disease & Indicates if the patient has heart disease & 0 (No), 1 (Yes) \\        \hline        ever\_married & Indicates if the patient has ever been married & "No", "Yes" \\        \hline        work\_type & Type of employment of the patient & "children", "Govt job", "Never worked", 
-"Private", "Self-employed" \\        \hline        bmi & Body Mass Index of the patient & Positive floats (e.g., 18.5, 30.0) \\        \hline        smoking\_status & Indicates the smoking status of the patient & "formerly smoked", "smokes"\\        
+\textbf{Attribute} & \textbf{Description} & \textbf{Possible Values} \\        
+\hline        
+\textbf{age} & Age of the patient in years & Whole numbers (e.g., 0, 1, 25, 60) \\        
+\hline        
+\textbf{gender} & Gender of the patient & "Male", "Female", "Other" \\        
+\hline        
+\textbf{hypertension} & Indicates if the patient has hypertension & 0 (No), 1 (Yes) \\        
+\hline        
+\textbf{heart\_disease} & Indicates if the patient has heart disease & 0 (No), 1 (Yes) \\        
+\hline        
+\textbf{ever\_married} & Indicates if the patient has ever been married & "No", "Yes" \\        
+\hline        
+\textbf{work\_type} & Type of employment of the patient & "Children", "Govt job", "Never worked", "Private", "Self-employed" \\        
+\hline        
+\textbf{bmi} & Body Mass Index of the patient & Positive floats (e.g., 18.5, 30.0) \\        
+\hline        
+\textbf{smoking\_status} & Indicates the smoking status of the patient & "Formerly smoked", "Smokes" \\        
 \hline    
 \end{tabular}    
 \end{table}
@@ -167,17 +294,25 @@ The following tables summarize the variables in the datasets, including their de
 \begin{table}[ht]
     \centering
     \caption{Attributes, Descriptions, and Possible Values from Work-Life Balance Survey}
-    \begin{tabular}{|l|l|l|} % Vertical lines between columns
-        \hline
-        \textbf{Attribute} & \textbf{Description} & \textbf{Possible Values} \\ \hline
-        DAILY\_STRESS      & Perceived daily stress level & Whole numbers (e.g., 1, 2, 3, 4, 5) \\ \hline
-        AGE                 & Age group of respondents & "20 or less", "21 to 35", "36 to 50", "51 or more" \\ \hline
-        GENDER              & Gender of respondents & "Male", "Female", "Other" \\ \hline
-        SUFFICIENT\_INCOME  & Indicates if the income is sufficient & 0 (No), 1 (Yes) \\ \hline
-        SLEEP\_HOURS        & Average hours of sleep per night & Whole numbers (e.g., 4, 5, 6, 7, 8, 9) \\ \hline
-    \end{tabular}
     \label{tab:work_life_balance_attributes}
+    \begin{tabular}{|l|p{5cm}|p{4cm}|} 
+        \hline
+        \textbf{Attribute} & \textbf{Description} & \textbf{Possible Values} \\ 
+        \hline
+        \textbf{DAILY\_STRESS}      & Perceived daily stress level & Whole numbers (e.g., 1, 2, 3, 4, 5) \\ 
+        \hline
+        \textbf{AGE}                 & Age group of respondents & "20 or less", "21 to 35", "36 to 50", "51 or more" \\ 
+        \hline
+        \textbf{GENDER}              & Gender of respondents & "Male", "Female", "Other" \\ 
+        \hline
+        \textbf{SUFFICIENT\_INCOME}  & Indicates if the income is sufficient & 0 (No), 1 (Yes) \\ 
+        \hline
+        \textbf{SLEEP\_HOURS}        & Average hours of sleep per night & Whole numbers (e.g., 4, 5, 6, 7, 8, 9) \\ 
+        \hline
+    \end{tabular}
 \end{table}
+
+
 
 \begin{table}[ht]
     \centering
@@ -266,18 +401,10 @@ The following tables summarize the variables in the datasets, including their de
     \label{fig:enter-label}
 \end{figure}
 
-\section{Cleaning}
-Data cleaning is a crucial step in preparing data for analysis, ensuring that the datasets are accurate, consistent, and complete such as in Table 1, which summarizes the descriptions and possible values for key attributes. Inconsistencies were identified and rectified in the data, particularly for categorical variables like gender and the presence of health conditions such as hypertension and heart disease, which are coded as binary values (0 for "No" and 1 for "Yes"). Additionally, the numerical data, including the Body Mass Index (BMI) and income sufficiency scores, were examined to ensure they fell within realistic ranges. For continuous variables like daily stress levels and sleep hours, frequency distributions were tabulated, as demonstrated in subsequent tables, to check for outliers. This included examining stress levels, which were recorded in intervals, revealing patterns in the counts associated with each level (Table 2). Demographic distributions were focused on, such as age and gender breakdowns (Tables 4 and 5), confirming their representation matched expectations based on the source population. By employing these data cleaning techniques, it improved the reliability of analysis and enhanced the validity of the findings regarding daily stress influences. For instance, the graphical summary shown in Figure \ref{fig:Healthy Mind What Drives Our Daily Stress} visually represents the analyzed data, indicating significant relationships that deserve further exploration.
-
-\subsection{Work-Life Balance Survey}
-
-The data cleaning process for the Work-Life Balance Survey dataset begins with an assessment of its initial structure, where the dataset's information and the first few rows are inspected to understand its layout and the types of data contained within. This foundational step allows for the identification of any discrepancies in column names, which are then standardized by stripping any leading or trailing whitespace. To focus the analysis, only relevant columns—specifically 'DAILY STRESS', 'AGE', 'GENDER', 'INCOME', and 'SLEEP HOURS'—are selected, ensuring that they exist within the DataFrame. Particular attention is given to categorical values; for instance, the age category "Less than 20" is revised to "20 or less" for consistency. Critical numeric conversions are performed on the 'DAILY STRESS' and 'SLEEP HOURS' columns, with errors handled through coercion to address any non-numeric values. Duplicate entries are eliminated to maintain data integrity, followed by a thorough check for missing values across the dataset. Rows with missing data in essential variables are dropped to ensure the robustness of the analysis. Finally, descriptive statistics are generated to provide insights into the data distribution, and the cleaned dataset is saved as a CSV file, ensuring it is ready for future exploratory analysis. This meticulous cleaning procedure lays the groundwork for a comprehensive understanding of the factors influencing work-life balance and contributes to enhanced decision-making regarding employee well-being.
-
-\subsection{Healthcare Dataset Stroke Data}
-
-The data preprocessing workflow for the healthcare stroke dataset employs several key techniques to ensure the dataset is ready for analysis. Initially, the dataset is loaded using Pandas, and the first step involves examining its structure and identifying any missing values, which informs subsequent cleaning procedures. A selection of relevant features, including age, gender, hypertension status, heart disease, and more, is made to focus the analysis. To address missing values, categorical variables such as gender and marital status are encoded using LabelEncoder, converting them into a numerical format suitable for machine learning models. The K-nearest neighbors (KNN) imputation method is applied specifically to the body mass index (BMI) column, filling in gaps based on similar observations. The target variable, stroke status, is then transformed into a binary format for easier classification. After addressing missing values, a correlation analysis is conducted to explore relationships between variables, and the data is split into training and testing sets to enable robust model evaluation. To enhance model performance, feature scaling is performed using Min-Max scaling, ensuring all features are on a similar scale. Additionally, class imbalance in the target variable is addressed using the Synthetic Minority Over-sampling Technique (SMOTE), which balances the number of instances of each class in the training set. Finally, the cleaned and processed dataset is saved for future modeling efforts, completing a comprehensive cleaning and preprocessing pipeline that prepares the data for effective exploratory analysis and predictive modeling.
 
 \section{Exploratory Data Analysis}
+
+
 
 
 \clearpage
