@@ -434,11 +434,14 @@ The following code and tables summarize the cleaned data attributes, including t
 \end{table}
 
 \section{Exploratory Data Analysis}
+In the exploratory data analysis (EDA) conducted on both the stroke prediction and work-life balance datasets, several systematic steps were taken to thoroughly understand the underlying patterns and distributions within the data. The process began with importing essential libraries such as Pandas, NumPy, Matplotlib, and Seaborn, which facilitated data manipulation and visualization. Upon loading each dataset from their specified file paths, the initial structure was examined by displaying the first five rows and utilizing the info() method to reveal data types and any missing values. Summary statistics were generated using the describe() function to provide insights into key metrics across both datasets.
 
+\subsubsection{}
+For the stroke prediction dataset, a heatmap was created to visually represent the presence of missing values, and column names were trimmed of any leading or trailing spaces to ensure accuracy in subsequent analyses. Continuous variables were identified, and histograms were plotted to illustrate their distributions, followed by a pairplot to analyze relationships between these continuous variables. Important categorical variables, such as gender and age, were visualized using count plots, and a correlation heatmap was generated to explore relationships between numerical features. 
 
+\subsubsection{}
+Similarly, the work-life balance dataset was analyzed using a series of visualizations. A histogram illustrated the distribution of daily stress levels, while count plots depicted the number of respondents across different age groups and genders. Another histogram visualized sleep hours, and a scatter plot illustrated the relationship between daily stress levels and hours of sleep, differentiated by gender. These visualizations collectively provided a comprehensive overview of both datasets, highlighting key trends and relationships that warranted further investigation. This comprehensive EDA approach laid the groundwork for more in-depth analysis, revealing valuable insights into each dataset.
 
-
-\clearpage
 \begin{figure}
     \centering
     \includegraphics[width=1.2\linewidth]{__results___16_0.png}
