@@ -446,7 +446,7 @@ Similarly, the work-life balance dataset was analyzed using a series of visualiz
 \textbf{Detailed Analysis of Stroke Incidence Dataset: Overview, Summary Statistics, and Correlation Insights}
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{eda.png}
+    \includegraphics[width=1.0\linewidth]{eda.png}
     \caption{Analysis of Health-related Dataset} 
     \label{fig:enter-label}
 \end{figure}
@@ -457,7 +457,7 @@ The dataset reveals several key demographic and health-related characteristics r
 \textbf{Distribution on Variables}
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{eda1.png}
+    \includegraphics[width=1.0\linewidth]{eda1.png}
     \caption{Distribution Scales} 
     \label{fig:enter-label}
 \end{figure}
@@ -468,7 +468,7 @@ The distribution scales highlight several significant factors correlated with st
 \textbf{Visual Analysis of Health Factors Associated with Stroke Incidence}
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{eda2.png}
+    \includegraphics[width=1.0\linewidth]{eda2.png}
     \caption{Boxplot Chart} 
     \label{fig:enter-label}
 \end{figure}
@@ -479,7 +479,7 @@ The boxplot visually conveys that while the "No Stroke" group has a younger age 
 \textbf{Overall Correlation Trends}
 \begin{figure}
     \centering
-    \includegraphics[width=.8\linewidth]{eda3.png}
+    \includegraphics[width=1.0\linewidth]{eda3.png}
     \caption{Correlation Heatmap} 
     \label{fig:enter-label}
 \end{figure}
@@ -494,17 +494,19 @@ Using a color gradient to depict correlation coefficients ranging from -1 to +1,
     \label{fig:enter-label}
 \end{figure}
 
-\subsubsection{}
+The dataset comprises 390 entries with 4 columns: DAILY STRESS, AGE, GENDER, and SLEEP HOURS, focusing on the interplay between these variables in relation to work-life balance or mental health. Most notably, the mean stress level is approximately 2.63 (ranging from 0 to 5), indicating moderate stress levels, while sleep duration averages 6.33 hours with significant variability (1 to 10 hours). The dataset features predominantly younger respondents, especially those 20 or younger, and shows a slight gender imbalance with more males (199) than females. There is one missing value in the DAILY STRESS column, which should be addressed to maintain data integrity. The insights suggest a potential correlation between sleep and stress levels that warrants further analysis through visualizations and correlation metrics.
 
+\newpage
 \begin{figure}
     \centering
-    \includegraphics[width=1.0\linewidth]{eda5.png}
+    \includegraphics[width=1.2\linewidth]{eda5.png}
     \caption{Distribution of Daily Stress} 
     \label{fig:enter-label}
 \end{figure}
 
-\subsubsection{}
+The histogram displaying the distribution of daily stress levels indicates that most participants report low to moderate stress, with a concentration of respondents falling between stress levels 1 and 4. The Kernel Density Estimate (KDE) line overlays the histogram, reinforcing the notion that lower stress levels are more common, while higher stress levels appear less frequent. This suggests a generally favorable well-being among the majority of respondents. In the boxplot of sleep hours by gender, it is evident that both genders experience a similar median sleep duration, around 6 to 7 hours, yet the distribution shows that females display a wider range of sleep hours, indicating greater variability. 
 
+\newpage
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda6.png}
@@ -512,8 +514,9 @@ Using a color gradient to depict correlation coefficients ranging from -1 to +1,
     \label{fig:enter-label}
 \end{figure}
 
-\subsubsection{}
+From the analysis of the heatmap, it may be observed that there is likely a negative correlation between SLEEP HOURS and DAILY STRESS (e.g., around -0.3 to -0.5, though the exact value would depend on the actual heatmap annotations). This negative correlation implies that as sleep hours increase, daily stress levels tend to decrease, aligning with existing literature on the importance of adequate sleep for managing stress and promoting overall well-being. Conversely, if DAILY STRESS is positively correlated with any other variables (such as age, if applicable), this could suggest that increases in those factors are associated with higher stress levels.
 
+\newpage
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda7.png}
@@ -521,8 +524,9 @@ Using a color gradient to depict correlation coefficients ranging from -1 to +1,
     \label{fig:enter-label} 
 \end{figure}
 
-\subsubsection{}
+From the analysis, it appears that the age group "20 or less" has the highest representation, with a notable portion of the participants identifying as female. This highlights that younger individuals, particularly females, are prominently featured in the dataset. As the age groups increase, there is a gradual decrease in the total number of respondents, suggesting that fewer older individuals participated in the study. Interestingly, the data may also indicate varying gender distributions across different age categories; for example, males may be more represented in certain age groups compared to females. This demographic pattern could suggest that factors influencing stress and sleep, as identified in previous analyses, may manifest differently across genders and age groups.
 
+\newpage
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda8.png}
@@ -530,8 +534,9 @@ Using a color gradient to depict correlation coefficients ranging from -1 to +1,
     \label{fig:enter-label}
 \end{figure}
 
-\subsubsection{}
+From the analysis, it is evident that the median sleep hours for both males and females are similar, likely around 6 to 7 hours. However, the shape of the violins suggests that females exhibit a wider range of sleep hours, with a noticeable distribution that extends further on both the lower and upper ends compared to males. This indicates that female respondents are more likely to experience extreme sleep durations, which could include both significantly low and significantly high sleep hours.
 
+\newpage
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda9.png}
@@ -539,7 +544,7 @@ Using a color gradient to depict correlation coefficients ranging from -1 to +1,
     \label{fig:enter-label}
 \end{figure}
 
-\subsubsection{}
+From the analysis, the plot likely reveals distinct trends for males and females, showcasing how daily stress levels fluctuate over the observed period. The use of different hues (colors) for each gender allows for straightforward comparisons. For instance, if the plot shows that females generally report higher daily stress levels than males, this could indicate that women in the dataset are more affected by daily stressors, or they may experience stress more intensely.
 
 \begin{figure}
     \centering
