@@ -442,8 +442,14 @@ For the stroke prediction dataset, a heatmap was created to visually represent t
 \subsubsection{}
 Similarly, the work-life balance dataset was analyzed using a series of visualizations. A histogram illustrated the distribution of daily stress levels, while count plots depicted the number of respondents across different age groups and genders. Another histogram visualized sleep hours, and a scatter plot illustrated the relationship between daily stress levels and hours of sleep, differentiated by gender. These visualizations collectively provided a comprehensive overview of both datasets, highlighting key trends and relationships that warranted further investigation. This comprehensive EDA approach laid the groundwork for more in-depth analysis, revealing valuable insights into each dataset.
 
-\newpage
-\textbf{Detailed Analysis of Stroke Incidence Dataset: Overview, Summary Statistics, and Correlation Insights}
+\subsubsection*{GitHub Project Link}
+The Python exploratory data analysis notebook used for this project can be accessed for further evaluation in link provided below....
+\begin{itemize}
+    \item \href{https://github.com/alvaroquintero28/Capstone-Project-Report/blob/main/EDA.ipynb}{Capstone Report EDA.ipynb}  
+\end{itemize}
+
+ EDA reports were interpreted in the following charts and graphs.
+
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda.png}
@@ -453,8 +459,6 @@ Similarly, the work-life balance dataset was analyzed using a series of visualiz
 
 The dataset reveals several key demographic and health-related characteristics regarding stroke incidence. The mean age of individuals is approximately 0.67, with a standard deviation of 0.27, indicating a tendency toward older ages within the normalized scale. The gender distribution has a mean of 0.43, suggesting a nearly equal representation with a slight female majority, contingent on the encoding used. Hypertension is present in about 18.27 percent of the population, reflecting a minority affected by this condition, while heart disease incidence stands at 11.74 percent, marking a lower prevalence compared to hypertension. Approximately 76.59 percent of individuals have been married at some point, highlighting the role of marital status in this dataset. The average BMI is around 0.21, though this figure requires context regarding its normalization. Additionally, smoking status reveals that around 49.12 percent of the population are smokers, indicating a substantial presence of this risk factor. Notably, the target variable, stroke, is well-represented with a balanced incidence rate of 50 percent.
 
-\newpage
-\textbf{Distribution on Variables}
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda1.png}
@@ -465,7 +469,6 @@ The dataset reveals several key demographic and health-related characteristics r
 The distribution scales highlight several significant factors correlated with stroke incidence. There is a strong correlation between age and higher stroke risk, particularly among older adults. Hypertension emerges as a critical risk factor, with a notably higher incidence observed in stroke patients. Additionally, heart disease shows elevated prevalence among those who have suffered a stroke, underscoring the influence of cardiovascular health on stroke risk.
 
 \newpage
-\textbf{Visual Analysis of Health Factors Associated with Stroke Incidence}
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda2.png}
@@ -476,7 +479,6 @@ The distribution scales highlight several significant factors correlated with st
 The boxplot visually conveys that while the "No Stroke" group has a younger age distribution, with most individuals falling within the lower range, the "Stroke" group encompasses a wider age range. This highlights that, while strokes are primarily a concern for older adults, younger individuals can also be at risk, albeit in lower numbers.
 
 \newpage
-\textbf{Overall Correlation Trends}
 \begin{figure}
     \centering
     \includegraphics[width=1.0\linewidth]{eda3.png}
