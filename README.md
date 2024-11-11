@@ -1,3 +1,32 @@
+## Instructions for Managing the Project Virtual Environment
+
+Following instructions for managing the virtual environment for the Capstone-Project-Report, including steps for creating, activating, and installing required dependencies.
+
+### 1. Create the Virtual Environment
+
+In the project root directory, run the following command to create a virtual environment named `venv`:
+
+```python
+python -m venv .venv
+```
+This command will create a new directory called venv, which will contain all the necessary files for the virtual environment.
+
+### 2. Activate the Project Virtual Environment
+```python
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+Install dependencies into your `.venv` 
+pip install pandas seaborn matplotlib
+
+# Command to generate a requirements.txt with all installed packages
+pip freeze > requirements.txt
+
+
+
+
+
 % This is samplepaper.tex, a sample chapter demonstrating the
 % LLNCS macro package for Springer Computer Science proceedings;
 % Version 2.20 of 2017/10/04
