@@ -20,7 +20,7 @@ source venv/bin/activate
 Install dependencies into your `.venv` 
 pip install pandas seaborn matplotlib
 
-# Command to generate a requirements.txt with all installed packages
+### Command to generate a requirements.txt with all installed packages
 pip freeze > requirements.txt
 
 
