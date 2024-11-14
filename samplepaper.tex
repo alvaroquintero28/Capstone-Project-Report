@@ -552,9 +552,82 @@ Subsequently, the analysis shifted to a dataset related to work-life balance, wi
 
 Each model was fitted with the training data, and their performance on the test set was assessed, with the results documented in a comprehensive dictionary for clarity. The metrics were subsequently compiled into a DataFrame for easy interpretation and visualized through various plots, including bar plots for individual metrics, a 3D bar chart showcasing precision, recall, and F1 score simultaneously, a scatter plot comparing accuracy and precision, and a line graph depicting performance metrics across all models. The modeling data analysis notebook used for this project can be accessed for further evaluation in link provided below \href{https://github.com/alvaroquintero28/Capstone-Project-Report/blob/main/modeling.ipynb}{Capstone Report Modeling.ipynb}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 1.png}
+    \caption{Comparison of Model Performance Metrics} 
+    \label{fig:enter-label}
+\end{figure}
 
+In the visualization section, a comparison of model performance metrics was presented using bar plots for accuracy, precision, recall, and F1 score, specifically related to predicting health outcomes such as stroke occurrences and daily stress levels. The plots, generated with Seaborn, illustrated the performance of each machine learning model—Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Neighbors, and Naive Bayes—across these crucial metrics. By organizing the metrics into a 2x2 grid layout, the visualizations facilitated straightforward comparisons, allowing the identification of which models excelled in detecting strokes or effectively predicting daily stress. 
 
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 2.png}
+    \caption{3D Visualization of Model Performance Metrics} 
+    \label{fig:enter-label}
+\end{figure}
 
+The 3D bar chart illustrated how each model performed across these critical metrics, allowing for an easier understanding of their strengths and weaknesses in accurately detecting health-related issues. By representing the accuracy, precision, recall, and F1 score simultaneously, the chart enabled a holistic view of model effectiveness, highlighting which algorithms were best at not only identifying strokes and stress but also minimizing false positives and negatives.
+
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 4.png}
+    \caption{Performance Metrics Across Machine Learning Models} 
+    \label{fig:enter-label}
+\end{figure}
+
+The line graph showing performance metrics across machine learning models provided clear insights into the effectiveness of each algorithm in predicting health outcomes, specifically stroke occurrences and daily stress levels. By plotting accuracy, precision, recall, and F1 score for each model, it became evident which algorithms consistently performed well across multiple metrics. For instance, models like Random Forest and Logistic Regression demonstrated high accuracy and precision, indicating their reliability in correctly identifying both positive and negative cases. In contrast, other models, while effective in certain areas, exhibited lower recall rates, suggesting they missed some instances of stress or strokes. 
+
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 5.png}
+    \caption{Visualization of Class Distribution for Daily Stress Levels} 
+    \label{fig:enter-label}
+\end{figure}
+
+The visualization of class distribution for daily stress levels revealed important insights into the prevalence of stress categories within the dataset. The count plot depicted the frequency of each class, allowing for an immediate understanding of how daily stress was distributed among the participants. Notably, it became apparent whether the dataset was balanced or imbalanced concerning the different stress classes, which is crucial for informing the selection of appropriate modeling techniques. If certain classes were significantly underrepresented, this could impact model performance and the generalizability of predictions.
+
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 9.png}
+    \caption{Initialization and Evaluation of Machine Learning Classifiers} 
+    \label{fig:enter-label}
+\end{figure}
+
+Six different models—Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Nearest Neighbors, and Naive Bayes—were trained and tested on the dataset, and their respective performance metrics were calculated. The results, captured in a comprehensive DataFrame, revealed that the Random Forest model achieved the highest accuracy, recall, and F1 score, indicating its robustness in correctly identifying stress levels. Conversely, the Logistic Regression model performed well but exhibited slightly lower recall, suggesting it missed some instances of elevated stress. 
+
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 7.png}
+    \caption{3D Visualization of Model Performance Metrics: Accuracy, Precision, Recall, and F1 Score} 
+    \label{fig:enter-label}
+\end{figure}
+
+The chart revealed that the Random Forest model achieved the highest precision, signifying its effectiveness in minimizing false positives when identifying elevated stress levels. In contrast, the F1 score, which balances both precision and recall, indicated that while some models excelled in accuracy, they struggled with recall, highlighting potential weaknesses in detecting all relevant cases of stress. The SVM and K-Neighbors models demonstrated moderate scores across all metrics, suggesting that they might provide balanced performance in practical applications. This comprehensive visual representation allowed for a thorough understanding of each model's strengths and limitations, ultimately aiding in the selection of the best-suited algorithms for further training and deployment in healthcare solutions focused on stress prediction.
+
+\newpage
+\begin{figure}
+    \centering
+    \includegraphics[width=1.0\linewidth]{modeling 8.png}
+    \caption{Performance Metrics Comparison Across Machine Learning Models} 
+    \label{fig:enter-label}
+\end{figure}
+
+The Random Forest model consistently showcased the highest scores across all metrics, reflecting its strong ability to accurately classify instances of stress. In comparison, the Logistic Regression model exhibited good performance but demonstrated lower recall, indicating it missed some cases of stress detection. Meanwhile, models like K-Neighbors and Support Vector Machine showed varied performance, with strengths in specific metrics but weaknesses in others. This visual representation clarified the trade-offs between different performance metrics, emphasizing the importance of selecting models based on the specific needs of health outcome predictions, such as prioritizing precision to avoid false positives or maximizing recall to ensure all potential stress cases are identified.
+
+\subsection{Key Insights from Model Development}
+
+The analysis involved initializing and evaluating six machine learning models—Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Neighbors, and Naive Bayes—to predict both stroke occurrences and daily stress levels using cleaned datasets. For stroke prediction, the Random Forest model achieved the highest accuracy score (98.62 percent) and recall (99.04 percent), demonstrating its effectiveness in identifying both positive and negative cases of stroke, while the Decision Tree showed similar performance. In contrast, Logistic Regression lagged significantly behind, with an accuracy of only 76.41 percent. Similarly, in the analysis of work life balance, the class distribution of daily stress was visualized to identify imbalances, prompting the use of the Synthetic Minority Over-sampling Technique (SMOTE) to create a more balanced dataset before splitting it into training and testing sets. Each model was then fitted to the training data, and performance metrics—accuracy, precision, recall, and F1 score—were calculated and organized into a DataFrame. 
+
+\subsubsection{}
+
+The results consistently highlighted the Random Forest model's superior performance across both applications, underscoring its robustness in predictive modeling. A series of visualizations—bar plots, a 3D bar chart, and scatter plots—provided a comprehensive overview of model performance, revealing critical trade-offs between metrics and emphasizing the need for careful model selection based on specific healthcare priorities, such as minimizing false negatives or achieving high precision to avoid unnecessary treatments. Overall, these insights underscored the importance of employing appropriate machine learning models in healthcare applications, particularly for stroke prediction and well-being identification, facilitating informed decision-making for effective interventions.
 
 \clearpage
 \nocite{*}
