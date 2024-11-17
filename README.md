@@ -275,6 +275,7 @@ The following code and tables summarize the cleaned data attributes, including t
 | Male                   | 38%                                      |
 ```
 
+```markdown
 # Exploratory Data Analysis
 
 In the exploratory data analysis (EDA) conducted on both the stroke prediction and work-life balance datasets, several systematic steps were taken to thoroughly understand the underlying patterns and distributions within the data. The process began with importing essential libraries such as Pandas, NumPy, Matplotlib, and Seaborn, which facilitated data manipulation and visualization. Upon loading each dataset from their specified file paths, the initial structure was examined by displaying the first five rows and utilizing the `info()` method to reveal data types and any missing values. Summary statistics were generated using the `describe()` function to provide insights into key metrics across both datasets. The Python exploratory data analysis notebook used for this project can be accessed for further evaluation through the link provided below: [Capstone Report EDA.ipynb](https://github.com/alvaroquintero28/Capstone-Project-Report/blob/main/EDA.ipynb)
@@ -380,4 +381,6 @@ The analysis involved initializing and evaluating six machine learning models—
 ### Summary of Findings
 
 The results consistently highlighted the Random Forest model's superior performance across both applications, underscoring its robustness in predictive modeling. A series of visualizations—bar plots, a 3D bar chart, and scatter plots—provided a comprehensive overview of model performance, revealing critical trade-offs between metrics and emphasizing the need for careful model selection based on specific healthcare priorities, such as minimizing false negatives or achieving high precision to avoid unnecessary treatments. Overall, these insights underscored the importance of employing appropriate machine learning models in healthcare applications, particularly for stroke prediction and well-being identification, facilitating informed decision-making for effective interventions.
+```
+
 
