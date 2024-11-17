@@ -157,27 +157,29 @@ The following tables summarize the original data attributes, including their des
 | **GENDER**               | Gender of the individual                                  | "Male", "Female"                                     |
 | **WORK_LIFE_BALANCE_SCORE**| Score representing work-life balance                    | Float numbers                                         |
 
-## Cleaning
-Data cleaning was a crucial step in preparing the datasets for analysis, ensuring they were accurate, consistent, and complete. This update involved cleaning and consolidating attributes from various sources, namely the original healthcare dataset and the work-life balance survey. Such extensive data cleaning was essential for addressing the research question about the relationships between health conditions, demographic factors, and work-life balance. 
+## Data Cleaning Process
 
-During the cleaning process, inconsistencies in categorical variables were identified and rectified. For instance, gender data were standardized for consistency. The following code snippet illustrates this process:
+During the data cleaning process, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
 
 ```python
-df['gender'] = df['gender'].str.lower().replace({'female': 'F', 'male': 'M'})
-# Stroke Prediction Capstone ProjectAdditionally, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
-df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1}) 
+df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1})
 df['heart disease'] = df['heart disease'].replace({'No': 0, 'Yes': 1})
+
 Numerical data like Body Mass Index (BMI) and income sufficiency scores were rigorously examined. Outliers in continuous variables, including daily stress levels and sleep hours, were identified using Z-score analysis:
+
 from scipy import stats 
 df['stress z'] = stats.zscore(df['daily stress']) 
 outliers = df[abs(df['stress z']) > 3]
+
 This approach allowed for careful evaluation of outliers, enhancing our understanding of the dataset's validity. Demographic distributions were also analyzed to ensure they matched expected values from the source population. For example, we visualized age distribution through a histogram:
+
 import matplotlib.pyplot as plt 
 plt.hist(df['age'], bins=10, edgecolor='black') 
 plt.title('Age Distribution') 
 plt.xlabel('Age') 
 plt.ylabel('Frequency') 
 plt.show()
+
 This visualization confirmed that the age distribution accurately reflected the target population, bolstering our findings' external validity. As a result of these data cleaning efforts, we created comprehensive tables that clarified essential variables, such as age, gender, income sufficiency, and sleep hours. These cleaned tables improved data accessibility and understanding across various domains.In this analysis, independent variables included demographic factors (age, gender, income sufficiency) and health conditions (hypertension, heart disease). The dependent variables consisted of health outcomes (stress levels, overall well-being) and lifestyle indicators (sleep hours, work-life balance). This framework enabled us to investigate how independent variables influenced the dependent ones, establishing a solid foundation for further analysis. Ultimately, the streamlined presentation of cleaned data provided a unified perspective on factors affecting health and work-life balance. By clarifying relationships among the variables, the data cleaning process enhanced the potential for robust analysis, facilitating deeper exploration of how various factors impact individuals' health and quality of life.
 
 Work-Life Balance Survey
