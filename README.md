@@ -195,3 +195,159 @@ The following code and table summarize the cleaned data attributes, including th
 Summary of cleaning code for Work-life Balance Survey
 
 Attributes, Descriptions, and Possible Values from Work-Life Balance SurveyAttributeDescriptionPossible ValuesDAILY_STRESSPerceived daily stress levelWhole numbers (e.g., 1, 2, 3, 4, 5)AGEAge group of respondents"20 or less", "21 to 35", "36 to 50", "51 or more"GENDERGender of respondents"Male", "Female", "Other"SUFFICIENT_INCOMEIndicates if the income is sufficient0 (No), 1 (Yes)SLEEP_HOURSAverage hours of sleep per nightWhole numbers (e.g., 4, 5, 6, 7, 8, 9)
+
+## Healthcare Dataset Stroke Data
+
+The data preprocessing workflow for the healthcare stroke dataset employs several key techniques to ensure the dataset is ready for analysis. Initially, the dataset is loaded using Pandas, and the first step involves examining its structure and identifying any missing values, which informs subsequent cleaning procedures. A selection of relevant features, including age, gender, hypertension status, heart disease, and more, is made to focus the analysis. To address missing values, categorical variables such as gender and marital status are encoded using LabelEncoder, converting them into a numerical format suitable for machine learning models. The K-nearest neighbors (KNN) imputation method is applied specifically to the body mass index (BMI) column, filling in gaps based on similar observations. The target variable, stroke status, is then transformed into a binary format for easier classification. After addressing missing values, a correlation analysis is conducted to explore relationships between variables, and the data is split into training and testing sets to enable robust model evaluation. To enhance model performance, feature scaling is performed using Min-Max scaling, ensuring all features are on a similar scale. Additionally, class imbalance in the target variable is addressed using the Synthetic Minority Over-sampling Technique (SMOTE), which balances the number of instances of each class in the training set. Finally, the cleaned and processed dataset is saved for future modeling efforts, completing a comprehensive cleaning and preprocessing pipeline that prepares the data for effective exploratory analysis and predictive modeling.
+
+### Dataset Cleaning Code and Variable Attributes
+
+The following code and tables summarize the cleaned data attributes, including their descriptions, data types, and possible values.
+
+
+![Summary of cleaning code for Healthcare Dataset](Cleaning1.png)
+![Summary of cleaning code for Healthcare Dataset](Cleaning2.png)
+
+| Attribute         | Description                                                     | Possible Values                            |
+|-------------------|-----------------------------------------------------------------|-------------------------------------------|
+| **age**           | Age of the patient in years                                    | Whole numbers (e.g., 0, 1, 25, 60)      |
+| **gender**        | Gender of the patient                                          | "Male", "Female", "Other"                |
+| **hypertension**  | Indicates if the patient has hypertension                      | 0 (No), 1 (Yes)                           |
+| **heart_disease** | Indicates if the patient has heart disease                     | 0 (No), 1 (Yes)                           |
+| **ever_married**  | Indicates if the patient has ever been married                 | "No", "Yes"                               |
+| **work_type**     | Type of employment of the patient                               | "Children", "Govt job", "Never worked", "Private", "Self-employed" |
+| **bmi**           | Body Mass Index of the patient                                  | Positive floats (e.g., 18.5, 30.0)       |
+| **smoking_status**| Indicates the smoking status of the patient                    | "Formerly smoked", "Smokes"               |
+
+#### Daily Stress Levels
+| Stress Level (0-10) | Count  |
+|---------------------|--------|
+| 0.00 - 0.25         | 676    |
+| 1.00 - 1.25         | 2,478  |
+| 2.00 - 2.25         | 3,407  |
+| 3.00 - 3.25         | 4,398  |
+| 4.00 - 4.25         | 2,960  |
+| 4.75 - 5.00         | 2,052  |
+
+#### Typical Sleep Hours
+| Sleep Hours (0-10) | Count  |
+|---------------------|--------|
+| 1.00 - 1.45        | 18     |
+| 1.90 - 2.35        | 21     |
+| 2.80 - 3.25        | 49     |
+| 3.70 - 4.15        | 252    |
+| 4.60 - 5.05        | 1,025  |
+| 5.95 - 6.40        | 3,397  |
+| 6.85 - 7.30        | 5,566  |
+| 7.75 - 8.20        | 4,324  |
+| 8.65 - 9.10        | 987    |
+| 9.55 - 10.00       | 333    |
+
+#### Income Sufficiency
+| Income Sufficiency   | Count   |
+|----------------------|---------|
+| 1.00 - 1.05          | 4,329   |
+| 1.95 - 2.00          | 11,643  |
+
+#### Demographic Breakdown
+| Age Group            | Percentage |
+|----------------------|------------|
+| 21 to 35             | 38%        |
+| 36 to 50             | 29%        |
+| Other                | 33%        |
+
+#### Gender Breakdown
+| Gender   | Percentage |
+|----------|------------|
+| Female   | 62%        |
+| Male     | 38%        |
+
+### Exploratory Data Analysis
+In the exploratory data analysis (EDA) conducted on the stroke prediction and work-life balance datasets, several systematic steps were taken to thoroughly understand the underlying patterns and distributions within the data. The process began with importing essential libraries such as Pandas, NumPy, Matplotlib, and Seaborn, which facilitated data manipulation and visualization. Upon loading each dataset from their specified file paths, the initial structure was examined by displaying the first five rows and utilizing the `info()` method to reveal data types and any missing values. Summary statistics were generated using the `describe()` function to provide insights into key metrics across both datasets. The Python exploratory data analysis notebook used for this project can be accessed for further evaluation in the link provided below: [Capstone Report EDA.ipynb](https://github.com/alvaroquintero28/Capstone-Project-Report/blob/main/EDA.ipynb)
+
+For the stroke prediction dataset, a heatmap was created to visually represent the presence of missing values, and column names were trimmed of any leading or trailing spaces to ensure accuracy in subsequent analyses. Continuous variables were identified, and histograms were plotted to illustrate their distributions, followed by a pairplot to analyze relationships between these continuous variables. Important categorical variables, such as gender and age, were visualized using count plots, and a correlation heatmap was generated to explore relationships between numerical features.
+
+Similarly, the work-life balance dataset was analyzed using a series of visualizations. A histogram illustrated the distribution of daily stress levels, while count plots depicted the number of respondents across different age groups and genders. Another histogram visualized sleep hours, and a scatter plot illustrated the relationship between daily stress levels and hours of sleep, differentiated by gender. These visualizations collectively provided a comprehensive overview of both datasets, highlighting key trends and relationships that warranted further investigation. This comprehensive EDA approach laid the groundwork for more in-depth analysis, revealing valuable insights into each dataset. EDA reports were interpreted in the following charts and graphs.
+
+![Analysis of Health-related Dataset](eda.png)
+
+The dataset reveals several key demographic and health-related characteristics regarding stroke incidence. The mean age of individuals is approximately 0.67, with a standard deviation of 0.27, indicating a tendency toward older ages within the normalized scale. The gender distribution has a mean of 0.43, suggesting a nearly equal representation with a slight female majority, contingent on the encoding used. Hypertension is present in about 18.27 percent of the population, reflecting a minority affected by this condition, while heart disease incidence stands at 11.74 percent, marking a lower prevalence compared to hypertension. Approximately 76.59 percent of individuals have been married at some point, highlighting the role of marital status in this dataset. The average BMI is around 0.21, though this figure requires context regarding its normalization. Additionally, smoking status reveals that around 49.12 percent of the population are smokers, indicating a substantial presence of this risk factor. Notably, the target variable, stroke, is well-represented with a balanced incidence rate of 50 percent.
+
+![Distribution Scales](eda1.png)
+
+The distribution scales highlight several significant factors correlated with stroke incidence. There is a strong correlation between age and higher stroke risk, particularly among older adults. Hypertension emerges as a critical risk factor, with a notably higher incidence observed in stroke patients. Additionally, heart disease shows elevated prevalence among those who have suffered a stroke, underscoring the influence of cardiovascular health on stroke risk.
+
+![Boxplot Chart](eda2.png)
+
+The boxplot visually conveys that while the "No Stroke" group has a younger age distribution, with most individuals falling within the lower range, the "Stroke" group encompasses a wider age range. This highlights that, while strokes are primarily a concern for older adults, younger individuals can also be at risk, albeit in lower numbers.
+
+![Correlation Heatmap](eda3.png)
+
+Using a color gradient to depict correlation coefficients ranging from -1 to +1, the heatmap visually differentiates positive correlations, shown in warmer reds, and negative correlations, indicated by cooler blues. The strongest positive correlation identified is between age and stroke, highlighting that older individuals are significantly more prone to experiencing strokes, which reaffirms established medical findings regarding age as a critical risk factor. Additionally, a moderate positive correlation exists between hypertension and stroke, suggesting that individuals with high blood pressure face an increased risk, thereby making hypertension an essential target for preventive healthcare measures.
+
+![Analysis of Well-being Dataset](eda4.png)
+
+The dataset comprises 390 entries with 4 columns: DAILY STRESS, AGE, GENDER, and SLEEP HOURS, focusing on the interplay between these variables in relation to work-life balance or mental health. Most notably, the mean stress level is approximately 2.63 (ranging from 0 to 5), indicating moderate stress levels, while sleep duration averages 6.33 hours with significant variability (1 to 10 hours). The dataset features predominantly younger respondents, especially those 20 or younger, and shows a slight gender imbalance with more males (199) than females. There is one missing value in the DAILY STRESS column, which should be addressed to maintain data integrity. The insights suggest a potential correlation between sleep and stress levels that warrants further analysis through visualizations and correlation metrics.
+
+![Distribution of Daily Stress](eda5.png)
+
+The histogram displaying the distribution of daily stress levels indicates that most participants report low to moderate stress, with a concentration of respondents falling between stress levels 1 and 4. The Kernel Density Estimate (KDE) line overlays the histogram, reinforcing the notion that lower stress levels are more common, while higher stress levels appear less frequent. This suggests a generally favorable well-being among the majority of respondents. In the boxplot of sleep hours by gender, it is evident that both genders experience a similar median sleep duration, around 6 to 7 hours, yet the distribution shows that females display a wider range of sleep hours, indicating greater variability.
+
+![Correlation Heatmap](eda6.png)
+
+From the analysis of the heatmap, it may be observed that there is likely a negative correlation between SLEEP HOURS and DAILY STRESS (e.g., around -0.3 to -0.5, though the exact value would depend on the actual heatmap annotations). This negative correlation implies that as sleep hours increase, daily stress levels tend to decrease, aligning with existing literature on the importance of adequate sleep for managing stress and promoting overall well-being. Conversely, if DAILY STRESS is positively correlated with any other variables (such as age, if applicable), this could suggest that increases in those factors are associated with higher stress levels.
+
+![Count Chart](eda7.png)
+
+From the analysis, it appears that the age group "20 or less" has the highest representation, with a notable portion of the participants identifying as female. This highlights that younger individuals, particularly females, are prominently featured in the dataset. As the age groups increase, there is a gradual decrease in the total number of respondents, suggesting that fewer older individuals participated in the study. Interestingly, the data may also indicate varying gender distributions across different age categories; for example, males may be more represented in certain age groups compared to females. This demographic pattern could suggest that factors influencing stress and sleep, as identified in previous analyses, may manifest differently across genders and age groups.
+
+![Violin Plot](eda8.png)
+
+From the analysis, it is evident that the median sleep hours for both males and females are similar, likely around 6 to 7 hours. However, the shape of the violins suggests that females exhibit a wider range of sleep hours, with a noticeable distribution that extends further on both the lower and upper ends compared to males. This indicates that female respondents are more likely to experience extreme sleep durations, which could include both significantly low and significantly high sleep hours.
+
+![Daily Stress vs Sleep Hours](eda9.png)
+
+From the analysis, the plot likely reveals distinct trends for males and females, showcasing how daily stress levels fluctuate over the observed period. The use of different hues (colors) for each gender allows for straightforward comparisons. For instance, if the plot shows that females generally report higher daily stress levels than males, this could indicate that women in the dataset are more affected by daily stressors, or they may experience stress more intensely.
+
+### Key Insights from EDA
+The exploratory data analysis (EDA) conducted on the stroke prediction and work-life balance datasets provided a comprehensive understanding of their underlying patterns and distributions. In the stroke prediction dataset, visualizations such as heatmaps for missing values, histograms for continuous variables, and count plots for categorical variables highlighted important insights, including a significant presence of hypertension (18.27 percent) and heart disease (11.74 percent). The analysis also revealed a nearly equal gender distribution with a slight female majority and a balanced stroke incidence rate of 50 percent. In the work-life balance dataset, key insights emerged regarding the mean stress level (approximately 2.63) and average sleep duration (6.33 hours), indicating moderate stress and variability in sleep patterns among predominantly younger respondents. The data suggested a negative correlation between sleep hours and daily stress, supporting existing literature that emphasized the importance of adequate sleep in stress management. Overall, this EDA laid a robust groundwork for further investigation, uncovering critical relationships and trends within the datasets that informed targeted health interventions and strategies for enhancing work-life balance and mental health outcomes.
+
+### Model Development
+In this project, comprehensive evaluations of various machine learning models were conducted to predict important health outcomes related to strokes. The analysis initially focused on a cleaned dataset for stroke prediction, importing essential libraries such as Pandas for data manipulation, NumPy for numerical operations, Matplotlib and Seaborn for visualization, and Scikit-learn for model training and evaluation. After loading the stroke dataset, the features and target variable were separated, followed by splitting the data into training and testing sets to ensure a robust evaluation. Six different models were initialized, including Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Neighbors, and Naive Bayes. Each model was trained on the training set, and various performance metrics—such as accuracy, recall, precision, and F1 score—were calculated and stored, integrating initial results from a prior analysis for comparative purposes.
+
+Subsequently, the analysis shifted to a dataset related to work-life balance, with the primary goal of predicting daily stress levels. The process began with the importation of the same essential libraries, along with a review of the dataset structure, including checks for missing values. Missing data in the 'DAILY STRESS' column was addressed thoughtfully, while categorical variables, such as 'AGE' and 'GENDER,' were converted to strings and encoded using LabelEncoder to facilitate model training. Following the feature and target variable selection, the class distribution was analyzed and visualized using a count plot, revealing potential imbalances in daily stress levels. The resampled data was then split into training and testing sets for model evaluation. Again, six classifiers—Logistic Regression, Decision Tree, Random Forest, SVM, K-Neighbors, and Naive Bayes—were initialized and evaluated based on the same performance metrics used in the stroke prediction analysis.
+
+Each model was fitted with the training data, and their performance on the test set was assessed, with the results documented in a comprehensive dictionary for clarity. The metrics were subsequently compiled into a DataFrame for easy interpretation and visualized through various plots, including bar plots for individual metrics, a 3D bar chart showcasing precision, recall, and F1 score simultaneously, a scatter plot comparing accuracy and precision, and a line graph depicting performance metrics across all models. The modeling data analysis notebook used for this project can be accessed for further evaluation in the link provided below: [Capstone Report Modeling.ipynb](https://github.com/alvaroquintero28/Capstone-Project-Report/blob/main/modeling.ipynb)
+
+![Comparison of Model Performance Metrics](modeling 1.png)
+
+In the visualization section, a comparison of model performance metrics was presented using bar plots for accuracy, precision, recall, and F1 score, specifically related to predicting health outcomes such as stroke occurrences and daily stress levels. The plots, generated with Seaborn, illustrated the performance of each machine learning model—Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Neighbors, and Naive Bayes—across these crucial metrics. By organizing the metrics into a 2x2 grid layout, the visualizations facilitated straightforward comparisons, allowing the identification of which models excelled in detecting strokes or effectively predicting daily stress. 
+
+![3D Visualization of Model Performance Metrics](modeling 2.png)
+
+The 3D bar chart illustrated how each model performed across these critical metrics, allowing for an easier understanding of their strengths and weaknesses in accurately detecting health-related issues. By representing the accuracy, precision, recall, and F1 score simultaneously, the chart enabled a holistic view of model effectiveness, highlighting which algorithms were best at not only identifying strokes and stress but also minimizing false positives and negatives.
+
+![Performance Metrics Across Machine Learning Models](modeling 4.png)
+
+The line graph showing performance metrics across machine learning models provided clear insights into the effectiveness of each algorithm in predicting health outcomes, specifically stroke occurrences and daily stress levels. By plotting accuracy, precision, recall, and F1 score for each model, it became evident which algorithms consistently performed well across multiple metrics. For instance, models like Random Forest and Logistic Regression demonstrated high accuracy and precision, indicating their reliability in correctly identifying both positive and negative cases. In contrast, other models, while effective in certain areas, exhibited lower recall rates, suggesting they missed some instances of stress or strokes. 
+
+![Visualization of Class Distribution for Daily Stress Levels](modeling 5.png)
+
+The visualization of class distribution for daily stress levels revealed important insights into the prevalence of stress categories within the dataset. The count plot depicted the frequency of each class, allowing for an immediate understanding of how daily stress was distributed among the participants. Notably, it became apparent whether the dataset was balanced or imbalanced concerning the different stress classes, which is crucial for informing the selection of appropriate modeling techniques. If certain classes were significantly underrepresented, this could impact model performance and the generalizability of predictions.
+
+![Initialization and Evaluation of Machine Learning Classifiers](modeling 9.png)
+
+Six different models—Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Nearest Neighbors, and Naive Bayes—were trained and tested on the dataset, and their respective performance metrics were calculated. The results, captured in a comprehensive DataFrame, revealed that the Random Forest model achieved the highest accuracy, recall, and F1 score, indicating its robustness in correctly identifying stress levels. Conversely, the Logistic Regression model performed well but exhibited slightly lower recall, suggesting it missed some instances of elevated stress. 
+
+![3D Visualization of Model Performance Metrics: Accuracy, Precision, Recall, and F1 Score](modeling 7.png)
+
+The chart revealed that the Random Forest model achieved the highest precision, signifying its effectiveness in minimizing false positives when identifying elevated stress levels. In contrast, the F1 score, which balances both precision and recall, indicated that while some models excelled in accuracy, they struggled with recall, highlighting potential weaknesses in detecting all relevant cases of stress. The SVM and K-Neighbors models demonstrated moderate scores across all metrics, suggesting that they might provide balanced performance in practical applications. This comprehensive visual representation allowed for a thorough understanding of each model's strengths and limitations, ultimately aiding in the selection of the best-suited algorithms for further training and deployment in healthcare solutions focused on stress prediction.
+
+![Performance Metrics Comparison Across Machine Learning Models](modeling 8.png)
+
+The Random Forest model consistently showcased the highest scores across all metrics, reflecting its strong ability to accurately classify instances of stress. In comparison, the Logistic Regression model exhibited good performance but demonstrated lower recall, indicating it missed some cases of stress detection. Meanwhile, models like K-Neighbors and Support Vector Machine showed varied performance, with strengths in specific metrics but weaknesses in others. This visual representation clarified the trade-offs between different performance metrics, emphasizing the importance of selecting models based on the specific needs of health outcome predictions, such as prioritizing precision to avoid false positives or maximizing recall to ensure all potential stress cases are identified.
+
+### Key Insights from Model Development
+The analysis involved initializing and evaluating six machine learning models—Logistic Regression, Decision Tree, Random Forest, Support Vector Machine (SVM), K-Neighbors, and Naive Bayes—to predict both stroke occurrences and daily stress levels using cleaned datasets. For stroke prediction, the Random Forest model achieved the highest accuracy score (98.62 percent) and recall (99.04 percent), demonstrating its effectiveness in identifying both positive and negative cases of stroke, while the Decision Tree showed similar performance. In contrast, Logistic Regression lagged significantly behind, with an accuracy of only 76.41 percent. Similarly, in the analysis of work-life balance, the class distribution of daily stress was visualized to identify imbalances, prompting the use of the Synthetic Minority Over-sampling Technique (SMOTE) to create a more balanced dataset before splitting it into training and testing sets. Each model was then fitted to the training data, and performance metrics—accuracy, precision, recall, and F1 score—were calculated and organized into a DataFrame.
+
+The results consistently highlighted the Random Forest model's superior performance across both applications, underscoring its robustness in predictive modeling. A series of visualizations—bar plots, a 3D bar chart, and scatter plots—provided a comprehensive overview of model performance, revealing critical trade-offs between metrics and emphasizing the need for careful model selection based on specific healthcare priorities, such as minimizing false negatives or achieving high precision to avoid unnecessary treatments. Overall, these insights underscored the importance of employing appropriate machine learning models in healthcare applications, particularly for stroke prediction and well-being identification, facilitating informed decision-making for effective interventions.
