@@ -164,4 +164,32 @@ During the cleaning process, inconsistencies in categorical variables were ident
 
 ```python
 df['gender'] = df['gender'].str.lower().replace({'female': 'F', 'male': 'M'})
+# Stroke Prediction Capstone ProjectAdditionally, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
+df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1}) 
+df['heart disease'] = df['heart disease'].replace({'No': 0, 'Yes': 1})
+Numerical data like Body Mass Index (BMI) and income sufficiency scores were rigorously examined. Outliers in continuous variables, including daily stress levels and sleep hours, were identified using Z-score analysis:
+from scipy import stats 
+df['stress z'] = stats.zscore(df['daily stress']) 
+outliers = df[abs(df['stress z']) > 3]
+This approach allowed for careful evaluation of outliers, enhancing our understanding of the dataset's validity. Demographic distributions were also analyzed to ensure they matched expected values from the source population. For example, we visualized age distribution through a histogram:
+import matplotlib.pyplot as plt 
+plt.hist(df['age'], bins=10, edgecolor='black') 
+plt.title('Age Distribution') 
+plt.xlabel('Age') 
+plt.ylabel('Frequency') 
+plt.show()
+This visualization confirmed that the age distribution accurately reflected the target population, bolstering our findings' external validity. As a result of these data cleaning efforts, we created comprehensive tables that clarified essential variables, such as age, gender, income sufficiency, and sleep hours. These cleaned tables improved data accessibility and understanding across various domains.In this analysis, independent variables included demographic factors (age, gender, income sufficiency) and health conditions (hypertension, heart disease). The dependent variables consisted of health outcomes (stress levels, overall well-being) and lifestyle indicators (sleep hours, work-life balance). This framework enabled us to investigate how independent variables influenced the dependent ones, establishing a solid foundation for further analysis. Ultimately, the streamlined presentation of cleaned data provided a unified perspective on factors affecting health and work-life balance. By clarifying relationships among the variables, the data cleaning process enhanced the potential for robust analysis, facilitating deeper exploration of how various factors impact individuals' health and quality of life.
 
+Work-Life Balance Survey
+
+The data cleaning process for the Work-Life Balance Survey dataset began with an assessment of its initial structure, where the dataset's information and the first few rows are inspected to understand its layout and the types of data contained within. This foundational step allowed for the identification of any discrepancies in column names, which were then standardized by stripping any leading or trailing whitespace.To focus the analysis, only relevant columns—specifically 'DAILY STRESS', 'AGE', 'GENDER', 'INCOME', and 'SLEEP HOURS'—are selected, ensuring that they existed within the DataFrame. Particular attention was given to categorical values; for instance, the age category "Less than 20" is revised to "20 or less" for consistency.Critical numeric conversions were performed on the 'DAILY STRESS' and 'SLEEP HOURS' columns, with errors handled through coercion to address any non-numeric values. Duplicate entries were eliminated to maintain data integrity, followed by a thorough check for missing values across the dataset. Rows with missing data in essential variables were dropped to ensure the robustness of the analysis.
+
+Finally, descriptive statistics were generated to provide insights into the data distribution, and the cleaned dataset was saved as a CSV file, ensuring it is ready for future exploratory analysis. This meticulous cleaning procedure set the groundwork for a comprehensive understanding of the factors influencing work-life balance and contributed to enhanced decision-making regarding employee well-being.
+
+Dataset Cleaning Code and Variable Attributes
+
+The following code and table summarize the cleaned data attributes, including their descriptions, data types, and possible values.
+
+Summary of cleaning code for Work-life Balance Survey
+
+Attributes, Descriptions, and Possible Values from Work-Life Balance SurveyAttributeDescriptionPossible ValuesDAILY_STRESSPerceived daily stress levelWhole numbers (e.g., 1, 2, 3, 4, 5)AGEAge group of respondents"20 or less", "21 to 35", "36 to 50", "51 or more"GENDERGender of respondents"Male", "Female", "Other"SUFFICIENT_INCOMEIndicates if the income is sufficient0 (No), 1 (Yes)SLEEP_HOURSAverage hours of sleep per nightWhole numbers (e.g., 4, 5, 6, 7, 8, 9)
