@@ -246,16 +246,50 @@ The following tables summarize the original data attributes, including their des
 \end{table}
 
 \clearpage
-
 \section{Cleaning}
-Data cleaning was a crucial step in preparing the datasets for analysis, ensuring that the datasets were accurate, consistent, and complete. This update involved comprehensive data cleaning and consolidation of attributes, descriptions, and possible values from various datasets, including the original healthcare dataset and the work-life balance survey. The data cleaning process was fundamental for addressing the research question concerning the relationships between health conditions, demographic factors, and work-life balance. During the cleaning process, inconsistencies were identified and rectified, particularly for categorical variables such as gender and the presence of health conditions like hypertension and heart disease, which were coded as binary values (0 for "No" and 1 for "Yes"). This clear coding system enhanced the reliability of these variables for analysis and facilitated insights into how these factors influenced health and well-being. 
 
-\subsubsection{}
-Numerical data, including Body Mass Index (BMI) and income sufficiency scores, were meticulously examined to ensure they fell within realistic and meaningful ranges. Outliers in continuous variables, such as daily stress levels and sleep hours, were evaluated through frequency distributions, allowing for a better understanding of the data and an assessment of the validity of the analyses. By examining stress levels recorded in specific intervals, trends and patterns that correlated with various demographic and health-related factors were identified.Demographic distributions, such as age and gender breakdowns, were analyzed to ensure their representation matched expectations based on the source population. This alignment strengthened the findings, as it confirmed that the data accurately reflected the population under study, thereby enhancing external validity.
+Data cleaning was a crucial step in preparing the datasets for analysis, ensuring they were accurate, consistent, and complete. This update involved cleaning and consolidating attributes from various sources, namely the original healthcare dataset and the work-life balance survey. Such extensive data cleaning was essential for addressing the research question about the relationships between health conditions, demographic factors, and work-life balance. During the cleaning process, inconsistencies in categorical variables were identified and rectified. For instance, gender data were standardized for consistency. The following code snippet illustrates this process:
 
-\subsubsection{}
+\textbf{
+\begin{quote}
+\texttt{df['gender'] = df['gender'].str.lower().replace({'female': 'F', 'male': 'M'})
+}
+\end{quote}
+}
+\vspace{1em}
+Additionally, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
+\vspace{1em}
+\begin{quote}
+\textbf{df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1})} \\
+\textbf{df['heart disease'] = df['heart disease'].replace({'No': 0, 'Yes': 1})}
+\end{quote}
+\vspace{1em}
+Numerical data like Body Mass Index (BMI) and income sufficiency scores were rigorously examined. Outliers in continuous variables, including daily stress levels and sleep hours, were identified using Z-score analysis:
 
-The result of these thorough data cleaning efforts was a set of comprehensive tables that presented a clearer view of essential variables, including age, gender, income sufficiency, and sleep hours. These cleaned and integrated tables not only improved access to the data but also enhanced understanding across different domains. In the context of this analysis, the independent variables included demographic factors (age, gender, income sufficiency) and health conditions (hypertension, heart disease), while the dependent variables encompassed health outcomes (stress levels, overall well-being) and lifestyle indicators (sleep hours, work-life balance). This framework allowed for an investigation into how these independent variables influenced the dependent variables, providing a foundation for further analysis. Furthermore, the streamlined presentation of the cleaned data offered a unified perspective on the factors influencing health and work-life balance. By clarifying the relationships among these variables, the data cleaning process enhanced the potential for robust analysis and informed decision-making, facilitating further exploration into how various factors interacted to affect individuals’ health and quality of life.
+\textbf{
+\begin{quote}
+\texttt{from scipy import stats \\ 
+df['stress z'] = stats.zscore(df['daily stress']) \\ 
+outliers = df[abs(df['stress z']) > 3]
+}
+\end{quote}
+}
+\vspace{1em}
+This approach allowed for careful evaluation of outliers, enhancing our understanding of the dataset's validity. Demographic distributions were also analyzed to ensure they matched expected values from the source population. For example, we visualized age distribution through a histogram:
+
+\textbf{
+\begin{quote}
+\texttt{import matplotlib.pyplot as plt \\ 
+plt.hist(df['age'], bins=10, edgecolor='black') \\ 
+plt.title('Age Distribution') \\ 
+plt.xlabel('Age') \\ 
+plt.ylabel('Frequency') \\ 
+plt.show()
+}
+\end{quote}
+}
+\vspace{1em} 
+This visualization confirmed that the age distribution accurately reflected the target population, bolstering our findings' external validity. As a result of these data cleaning efforts, we created comprehensive tables that clarified essential variables, such as age, gender, income sufficiency, and sleep hours. These cleaned tables improved data accessibility and understanding across various domains. In this analysis, independent variables included demographic factors (age, gender, income sufficiency) and health conditions (hypertension, heart disease). The dependent variables consisted of health outcomes (stress levels, overall well-being) and lifestyle indicators (sleep hours, work-life balance). This framework enabled us to investigate how independent variables influenced the dependent ones, establishing a solid foundation for further analysis. Ultimately, the streamlined presentation of cleaned data provided a unified perspective on factors affecting health and work-life balance. By clarifying relationships among the variables, the data cleaning process enhanced the potential for robust analysis, facilitating deeper exploration of how various factors impact individuals' health and quality of life.
 
 \subsection{Work-Life Balance Survey}
 
