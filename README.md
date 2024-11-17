@@ -157,11 +157,129 @@ The following tables summarize the original data attributes, including their des
 | **GENDER**               | Gender of the individual                                  | "Male", "Female"                                     |
 | **WORK_LIFE_BALANCE_SCORE**| Score representing work-life balance                    | Float numbers                                         |
 
+```markdown
+# Cleaning
+
+Data cleaning was a crucial step in preparing the datasets for analysis, ensuring they were accurate, consistent, and complete. This update involved cleaning and consolidating attributes from various sources, namely the original healthcare dataset and the work-life balance survey. Such extensive data cleaning was essential for addressing the research question about the relationships between health conditions, demographic factors, and work-life balance. During the cleaning process, inconsistencies in categorical variables were identified and rectified. For instance, gender data were standardized for consistency. The following code snippet illustrates this process:
+
+**Code Snippet**:
+```python
+df['gender'] = df['gender'].str.lower().replace({'female': 'F', 'male': 'M'})
+```
+
+Additionally, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
+
+```python
+df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1}) 
+df['heart disease'] = df['heart disease'].replace({'No': 0, 'Yes': 1})
+```
+
+Numerical data such as Body Mass Index (BMI) and income sufficiency scores were rigorously examined. Outliers in continuous variables, including daily stress levels and sleep hours, were identified using Z-score analysis:
+
+**Code Snippet**:
+```python
+from scipy import stats 
+df['stress z'] = stats.zscore(df['daily stress']) 
+outliers = df[abs(df['stress z']) > 3]
+```
+
+This approach allowed for careful evaluation of outliers, enhancing our understanding of the dataset's validity. Demographic distributions were also analyzed to ensure they matched expected values from the source population. For example, we visualized age distribution through a histogram:
+**Code Snippet**:
+```python
+import matplotlib.pyplot as plt 
+plt.hist(df['age'], bins=10, edgecolor='black') 
+plt.title('Age Distribution') 
+plt.xlabel('Age') 
+plt.ylabel('Frequency') 
+plt.show()
+```
+
+This visualization confirmed that the age distribution accurately reflected the target population, bolstering our findings' external validity. As a result of these data cleaning efforts, we created comprehensive tables that clarified essential variables, such as age, gender, income sufficiency, and sleep hours. These cleaned tables improved data accessibility and understanding across various domains. In this analysis, independent variables included demographic factors (age, gender, income sufficiency) and health conditions (hypertension, heart disease). The dependent variables consisted of health outcomes (stress levels, overall well-being) and lifestyle indicators (sleep hours, work-life balance). This framework enabled us to investigate how independent variables influenced the dependent ones, establishing a solid foundation for further analysis. Ultimately, the streamlined presentation of cleaned data provided a unified perspective on factors affecting health and work-life balance. By clarifying relationships among the variables, the data cleaning process enhanced the potential for robust analysis, facilitating deeper exploration of how various factors impact individuals' health and quality of life.
+
+## Work-Life Balance Survey
+
+The data cleaning process for the Work-Life Balance Survey dataset began with an assessment of its initial structure, where the dataset's information and the first few rows are inspected to understand its layout and the types of data contained within. This foundational step allowed for the identification of any discrepancies in column names, which were then standardized by stripping any leading or trailing whitespace. To focus the analysis, only relevant columns—specifically 'DAILY STRESS', 'AGE', 'GENDER', 'INCOME', and 'SLEEP HOURS'—were selected, ensuring that they existed within the DataFrame. Particular attention was given to categorical values; for instance, the age category "Less than 20" was revised to "20 or less" for consistency. Critical numeric conversions were performed on the 'DAILY STRESS' and 'SLEEP HOURS' columns, with errors handled through coercion to address any non-numeric values. Duplicate entries were eliminated to maintain data integrity, followed by a thorough check for missing values across the dataset. Rows with missing data in essential variables were dropped to ensure the robustness of the analysis. Finally, descriptive statistics were generated to provide insights into the data distribution, and the cleaned dataset was saved as a CSV file, ensuring it was ready for future exploratory analysis. This meticulous cleaning procedure set the groundwork for a comprehensive understanding of the factors influencing work-life balance and contributed to enhanced decision-making regarding employee well-being.
+
+### Dataset Cleaning Code and Variable Attributes
+
+The following code and table summarize the cleaned data attributes, including their descriptions, data types, and possible values.
+
+![Summary of cleaning code for Work-life Balance Survey](CleaningCode1.png)
+
+| Attribute              | Description                              | Possible Values                                          |
+|-----------------------|------------------------------------------|--------------------------------------------------------|
+| **DAILY_STRESS**      | Perceived daily stress level             | Whole numbers (e.g., 1, 2, 3, 4, 5)                   |
+| **AGE**               | Age group of respondents                 | "20 or less", "21 to 35", "36 to 50", "51 or more"   |
+| **GENDER**            | Gender of respondents                    | "Male", "Female", "Other"                              |
+| **SUFFICIENT_INCOME** | Indicates if the income is sufficient    | 0 (No), 1 (Yes)                                       |
+| **SLEEP_HOURS**       | Average hours of sleep per night        | Whole numbers (e.g., 4, 5, 6, 7, 8, 9)               |
+
+### Healthcare Dataset Stroke Data
+
+The data preprocessing workflow for the healthcare stroke dataset employs several key techniques to ensure the dataset is ready for analysis. Initially, the dataset is loaded using Pandas, and the first step involves examining its structure and identifying any missing values, which informs subsequent cleaning procedures. A selection of relevant features, including age, gender, hypertension status, heart disease, and more, is made to focus the analysis. To address missing values, categorical variables such as gender and marital status are encoded using LabelEncoder, converting them into a numerical format suitable for machine learning models. The K-nearest neighbors (KNN) imputation method is applied specifically to the body mass index (BMI) column, filling in gaps based on similar observations. The target variable, stroke status, is then transformed into a binary format for easier classification. After addressing missing values, a correlation analysis is conducted to explore relationships between variables, and the data is split into training and testing sets to enable robust model evaluation. To enhance model performance, feature scaling is performed using Min-Max scaling, ensuring all features are on a similar scale. Additionally, class imbalance in the target variable is addressed using the Synthetic Minority Over-sampling Technique (SMOTE), which balances the number of instances of each class in the training set. Finally, the cleaned and processed dataset is saved for future modeling efforts, completing a comprehensive cleaning and preprocessing pipeline that prepares the data for effective exploratory analysis and predictive modeling.
+
+#### Dataset Cleaning Code and Variable Attributes
+
+The following code and tables summarize the cleaned data attributes, including their descriptions, data types, and possible values.
+
+![Summary of cleaning code for Healthcare Dataset](Cleaning1.png)
+![Summary of cleaning code for Healthcare Dataset](Cleaning2.png)
+
+| Attribute           | Description                            | Possible Values                               |
+|---------------------|----------------------------------------|-----------------------------------------------|
+| **age**             | Age of the patient in years           | Whole numbers (e.g., 0, 1, 25, 60)           |
+| **gender**          | Gender of the patient                  | "Male", "Female", "Other"                     |
+| **hypertension**    | Indicates if the patient has hypertension | 0 (No), 1 (Yes)                             |
+| **heart_disease**   | Indicates if the patient has heart disease | 0 (No), 1 (Yes)                             |
+| **ever_married**    | Indicates if the patient has ever been married | "No", "Yes"                               |
+| **work_type**       | Type of employment of the patient      | "Children", "Govt job", "Never worked", "Private", "Self-employed" |
+| **bmi**             | Body Mass Index of the patient         | Positive floats (e.g., 18.5, 30.0)           |
+| **smoking_status**  | Indicates the smoking status of the patient | "Formerly smoked", "Smokes"                 |
+
+| Stress Level (0-10) | Count                                    |
+|----------------------|------------------------------------------|
+| 0.00 - 0.25          | 676                                      |
+| 1.00 - 1.25          | 2,478                                    |
+| 2.00 - 2.25          | 3,407                                    |
+| 3.00 - 3.25          | 4,398                                    |
+| 4.00 - 4.25          | 2,960                                    |
+| 4.75 - 5.00          | 2,052                                    |
+
+| Sleep Hours (0-10)    | Count                                   |
+|------------------------|-----------------------------------------|
+| 1.00 - 1.45            | 18                                      |
+| 1.90 - 2.35            | 21                                      |
+| 2.80 - 3.25            | 49                                      |
+| 3.70 - 4.15            | 252                                     |
+| 4.60 - 5.05            | 1,025                                   |
+| 5.95 - 6.40            | 3,397                                   |
+| 6.85 - 7.30            | 5,566                                   |
+| 7.75 - 8.20            | 4,324                                   |
+| 8.65 - 9.10            | 987                                     |
+| 9.55 - 10.00           | 333                                     |
+
+| Income Sufficiency     | Count                                   |
+|------------------------|----------------------------------------|
+| 1.00 - 1.05            | 4,329                                    |
+| 1.95 - 2.00            | 11,643                                   |
+
+| Age Group              | Percentage                               |
+|------------------------|------------------------------------------|
+| 21 to 35               | 38%                                      |
+| 36 to 50               | 29%                                      |
+| Other                  | 33%                                      |
+
+| Gender                 | Percentage                               |
+|------------------------|------------------------------------------|
+| Female                 | 62%                                      |
+| Male                   | 38%                                      |
+```
+
 ## Data Cleaning Process
 
 During the data cleaning process, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
 
-```python
+
 df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1})
 df['heart disease'] = df['heart disease'].replace({'No': 0, 'Yes': 1})
 
@@ -188,7 +306,7 @@ The data cleaning process for the Work-Life Balance Survey dataset began with an
 
 Finally, descriptive statistics were generated to provide insights into the data distribution, and the cleaned dataset was saved as a CSV file, ensuring it is ready for future exploratory analysis. This meticulous cleaning procedure set the groundwork for a comprehensive understanding of the factors influencing work-life balance and contributed to enhanced decision-making regarding employee well-being.
 
-Dataset Cleaning Code and Variable Attributes
+#### Dataset Cleaning Code and Variable Attributes
 
 The following code and table summarize the cleaned data attributes, including their descriptions, data types, and possible values.
 
