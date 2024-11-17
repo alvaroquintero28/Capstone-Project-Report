@@ -157,16 +157,14 @@ The following tables summarize the original data attributes, including their des
 | **GENDER**               | Gender of the individual                                  | "Male", "Female"                                     |
 | **WORK_LIFE_BALANCE_SCORE**| Score representing work-life balance                    | Float numbers                                         |
 
-## Cleaning
-Data cleaning was a crucial step in preparing the datasets for analysis, ensuring they were accurate, consistent, and complete. This update involved cleaning and consolidating attributes from various sources, namely the original healthcare dataset and the work-life balance survey. Such extensive data cleaning was essential for addressing the research question about the relationships between health conditions, demographic factors, and work-life balance. 
+## Data Cleaning Process
 
-During the cleaning process, inconsistencies in categorical variables were identified and rectified. For instance, gender data were standardized for consistency. The following code snippet illustrates this process:
+During the data cleaning process, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
 
 ```python
-df['gender'] = df['gender'].str.lower().replace({'female': 'F', 'male': 'M'})
-# Stroke Prediction Capstone ProjectAdditionally, health conditions such as hypertension and heart disease were encoded as binary values (0 for "No" and 1 for "Yes") to enhance reliability:
-df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1}) 
+df['hypertension'] = df['hypertension'].replace({'No': 0, 'Yes': 1})
 df['heart disease'] = df['heart disease'].replace({'No': 0, 'Yes': 1})
+
 Numerical data like Body Mass Index (BMI) and income sufficiency scores were rigorously examined. Outliers in continuous variables, including daily stress levels and sleep hours, were identified using Z-score analysis:
 from scipy import stats 
 df['stress z'] = stats.zscore(df['daily stress']) 
