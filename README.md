@@ -273,9 +273,7 @@ The following code and tables summarize the cleaned data attributes, including t
 |------------------------|------------------------------------------|
 | Female                 | 62%                                      |
 | Male                   | 38%                                      |
-```
 
-```markdown
 # Exploratory Data Analysis
 
 In the exploratory data analysis (EDA) conducted on both the stroke prediction and work-life balance datasets, several systematic steps were taken to thoroughly understand the underlying patterns and distributions within the data. The process began with importing essential libraries such as Pandas, NumPy, Matplotlib, and Seaborn, which facilitated data manipulation and visualization. Upon loading each dataset from their specified file paths, the initial structure was examined by displaying the first five rows and utilizing the `info()` method to reveal data types and any missing values. Summary statistics were generated using the `describe()` function to provide insights into key metrics across both datasets. The Python exploratory data analysis notebook used for this project can be accessed for further evaluation through the link provided below: [Capstone Report EDA.ipynb](https://github.com/alvaroquintero28/Capstone-Project-Report/blob/main/EDA.ipynb)
